@@ -92,31 +92,12 @@
     "shiroko": {
       "base": "5bd4471a-b621-4e41-8b47-2a0327fff285",
       "hair": null,
-      "top": "f6fddf73-5141-42b8-9976-fa76ccbae6cd",
-      "bottom": "a93810d5-41e6-43d1-9a16-359fcaf97265",
+      "top": null,
+      "bottom": null,
       "shoes": null,
       "accessory": null,
       "expression": null,
-      "transforms": {
-        "base": {
-          "x": 25,
-          "y": -400,
-          "scale": 38,
-          "rotation": 0
-        },
-        "top": {
-          "x": -18,
-          "y": 78,
-          "scale": 73,
-          "rotation": 0
-        },
-        "bottom": {
-          "x": 5,
-          "y": 154,
-          "scale": 55,
-          "rotation": 0
-        }
-      }
+      "transforms": {}
     },
     "hoshino": {
       "base": "c814bf00-7ecd-447b-bf40-a7b387957860",
