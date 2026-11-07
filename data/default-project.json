@@ -1,0 +1,19 @@
+{
+  "students": [
+    {"id":"shiroko","name":"시로코","en":"SHIROKO","mark":"白"},
+    {"id":"hoshino","name":"호시노","en":"HOSHINO","mark":"星"},
+    {"id":"serika","name":"세리카","en":"SERIKA","mark":"芹"},
+    {"id":"nonomi","name":"노노미","en":"NONOMI","mark":"野"},
+    {"id":"ayane","name":"아야네","en":"AYANE","mark":"綾"},
+    {"id":"terror","name":"시로코*테러","en":"SHIROKO＊TERROR","mark":"黒"}
+  ],
+  "assets": [],
+  "outfits": {
+    "shiroko":{"base":null,"hair":null,"top":null,"bottom":null,"shoes":null,"accessory":null,"expression":null,"transforms":{}},
+    "hoshino":{"base":null,"hair":null,"top":null,"bottom":null,"shoes":null,"accessory":null,"expression":null,"transforms":{}},
+    "serika":{"base":null,"hair":null,"top":null,"bottom":null,"shoes":null,"accessory":null,"expression":null,"transforms":{}},
+    "nonomi":{"base":null,"hair":null,"top":null,"bottom":null,"shoes":null,"accessory":null,"expression":null,"transforms":{}},
+    "ayane":{"base":null,"hair":null,"top":null,"bottom":null,"shoes":null,"accessory":null,"expression":null,"transforms":{}},
+    "terror":{"base":null,"hair":null,"top":null,"bottom":null,"shoes":null,"accessory":null,"expression":null,"transforms":{}}
+  }
+}
