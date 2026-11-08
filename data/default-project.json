@@ -2,43 +2,43 @@
   "students": [
     {
       "id": "shiroko",
-      "name": "시로코",
+      "name": "시로코-Shiroko",
       "en": "SHIROKO",
       "mark": "白"
     },
     {
       "id": "hoshino",
-      "name": "호시노",
+      "name": "호시노-Hoshino",
       "en": "HOSHINO",
       "mark": "星"
     },
     {
       "id": "serika",
-      "name": "세리카",
+      "name": "세리카-Serika",
       "en": "SERIKA",
       "mark": "芹"
     },
     {
       "id": "nonomi",
-      "name": "노노미",
+      "name": "노노미-Nonomi",
       "en": "NONOMI",
       "mark": "野"
     },
     {
       "id": "ayane",
-      "name": "아야네",
+      "name": "아야네-Ayane",
       "en": "AYANE",
       "mark": "綾"
     },
     {
       "id": "terror",
-      "name": "시로코*테러",
+      "name": "시로코*테러-Shiroko*Terror",
       "en": "SHIROKO＊TERROR",
       "mark": "黒"
     },
     {
       "id": "custom_mw750ngcbanf",
-      "name": "kei_케이",
+      "name": "케이-Kei",
       "en": "KEI_케이",
       "mark": "k",
       "school": ""
