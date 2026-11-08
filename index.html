@@ -13,8 +13,14 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .layout{display:grid;grid-template-columns:minmax(340px,1fr) 380px;gap:16px;align-items:stretch}.panel{background:var(--panel);border:1px solid #fff;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.panel-title{font-size:13px;font-weight:950;letter-spacing:.04em}.tiny{font-size:11px;color:var(--muted)}
 
 .stage-panel{padding:16px;display:flex;flex-direction:column;min-height:730px}.stage-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.stage-title{font-size:15px;font-weight:950}.stage-title span{font-size:11px;color:var(--muted);font-weight:600;margin-left:8px}.canvas-wrap{position:relative;flex:1;min-height:560px;border:1px solid #c8e6f2;border-radius:17px;overflow:hidden;background-color:#f0faff;background-image:linear-gradient(45deg,#d9edf6 25%,transparent 25%),linear-gradient(-45deg,#d9edf6 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d9edf6 75%),linear-gradient(-45deg,transparent 75%,#d9edf6 75%);background-size:22px 22px;background-position:0 0,0 11px,11px -11px,-11px 0;display:grid;place-items:center}
-#preview{height:min(70vh,720px);max-width:100%;width:auto;aspect-ratio:var(--canvas-ratio, 2/3);object-fit:contain;display:block;filter:drop-shadow(0 8px 12px #513b4814)}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;pointer-events:none}.empty-card{max-width:340px;background:#fffafbd9;border:1px solid #ead2dc;border-radius:16px;padding:22px;backdrop-filter:blur(4px)}.empty-card strong{font-size:15px;display:block;margin-bottom:7px}.empty-card p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
-.canvas-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;color:var(--muted);font-size:11px}.transform{margin-top:12px;padding:12px 14px;background:#eaf7fd;border-radius:14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.range label{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:5px}.range input{width:100%;accent-color:var(--pink)}
+#preview{height:min(70vh,720px);max-width:100%;width:auto;aspect-ratio:var(--canvas-ratio, 2/3);object-fit:contain;display:block;filter:drop-shadow(0 8px 12px #513b4814);touch-action:none;cursor:default;user-select:none;-webkit-user-select:none}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;pointer-events:none}.empty-card{max-width:340px;background:#fffafbd9;border:1px solid #ead2dc;border-radius:16px;padding:22px;backdrop-filter:blur(4px)}.empty-card strong{font-size:15px;display:block;margin-bottom:7px}.empty-card p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
+.canvas-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;color:var(--muted);font-size:11px}
+.tip{margin-top:8px;font-size:11px;color:#4a7188;background:#eaf7fd;border-radius:10px;padding:8px 11px;line-height:1.55}
+.transform{margin-top:12px;padding:12px 14px;background:#eaf7fd;border-radius:14px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.transform-head{grid-column:1/-1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:#28536a}
+.transform-head .lock{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:800;margin-left:auto}
+.transform-head .btn{padding:6px 10px;font-size:11px;border-radius:9px}
+.range label{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:5px}.range input{width:100%;accent-color:var(--pink)}
 
 .ratio-controls{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding:11px 13px;background:#eaf7fd;border:1px solid #c5e7f5;border-radius:13px;font-size:11px;color:#31586c}
 .ratio-controls strong{font-size:12px}.ratio-controls select,.ratio-controls input{border:1px solid #b9ddeb;border-radius:8px;padding:6px 7px;background:#fff;color:#203746;font-size:11px}
@@ -22,19 +28,20 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .layer-panel{margin-top:12px;padding:12px 13px;background:#f4fbff;border:1px solid #cdeaf6;border-radius:14px}
 .layer-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;color:#28536a}
 .layer-list{display:grid;gap:6px}.layer-row{display:flex;align-items:center;gap:7px;padding:7px 8px;background:#fff;border:1px solid #d5edf7;border-radius:9px;font-size:11px}
-.layer-row .layer-name{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:750}
+.layer-row.sel{border-color:var(--pink);background:#effaff}
+.layer-row .layer-name{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:750;cursor:pointer}
 .layer-row button{background:#eaf7fd;color:#28536a;border-radius:7px;padding:5px 8px;font-size:10px;font-weight:800}
 .layer-row button:disabled{opacity:.35;cursor:default}.layer-empty{font-size:11px;color:#718b9a;padding:8px}
-.right-panel{display:flex;flex-direction:column;min-height:730px}.category-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:12px}.cat{background:#eaf7fd;border:1px solid transparent;border-radius:10px;padding:9px 4px;font-size:11px;font-weight:850;color:#786875}.cat.active{background:#d8f1fc;border-color:#8fd4ef;color:#783b57}.import-box{margin:0 12px 12px;padding:12px;background:#effaff;border:1px dashed #a9dced;border-radius:14px}.import-box .field{display:flex;gap:8px;align-items:center;margin-bottom:8px}.field label{font-size:10px;color:var(--muted);width:66px;flex:none}.field select,.field input[type=text]{min-width:0;flex:1;border:1px solid var(--line);border-radius:8px;padding:7px 8px;background:white;color:var(--ink);font-size:11px}.search-field{margin:0 12px 10px}.search-field input{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink);font-size:11px}.file-input{display:none}.upload-label{display:flex;justify-content:center;align-items:center;gap:6px;padding:10px;background:white;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:850;color:#7f3f5c;cursor:pointer}.hint{font-size:10px;color:var(--muted);line-height:1.55;margin-top:8px}.library-head{padding:0 16px 9px;display:flex;justify-content:space-between;align-items:center}.asset-list{padding:0 12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow:auto;max-height:320px}.asset{position:relative;border:1px solid var(--line);background:white;border-radius:12px;overflow:hidden;text-align:left;padding:7px;color:var(--ink);min-width:0}.asset.equipped{border:2px solid var(--pink);padding:6px;background:#effaff}.asset img{width:100%;height:100px;object-fit:contain;background:#edf8fc;border-radius:8px;display:block}.asset b{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:7px 2px 2px}.asset small{display:block;font-size:9px;color:var(--muted);margin:0 2px}.asset .remove{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:8px;background:#fff;color:#9c526e;font-weight:900;box-shadow:0 1px 5px #0002}.empty-library{grid-column:1/-1;text-align:center;color:var(--muted);font-size:11px;padding:25px 12px;line-height:1.65;background:#f0faff;border-radius:12px}
+.right-panel{display:flex;flex-direction:column;min-height:730px}.category-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:12px}.cat{background:#eaf7fd;border:1px solid transparent;border-radius:10px;padding:9px 4px;font-size:11px;font-weight:850;color:#786875}.cat.active{background:#d8f1fc;border-color:#8fd4ef;color:#783b57}.import-box{margin:0 12px 12px;padding:12px;background:#effaff;border:1px dashed #a9dced;border-radius:14px}.import-box .field{display:flex;gap:8px;align-items:center;margin-bottom:8px}.field label{font-size:10px;color:var(--muted);width:66px;flex:none}.field select,.field input[type=text]{min-width:0;flex:1;border:1px solid var(--line);border-radius:8px;padding:7px 8px;background:white;color:var(--ink);font-size:11px}.mini{flex:none;padding:7px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);font-size:11px;font-weight:800;color:var(--ink)}.mini.danger{color:#a53b5d}.search-field{margin:0 12px 10px}.search-field input{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink);font-size:11px}.file-input{display:none}.upload-label{display:flex;justify-content:center;align-items:center;gap:6px;padding:10px;background:white;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:850;color:#7f3f5c;cursor:pointer}.hint{font-size:10px;color:var(--muted);line-height:1.55;margin-top:8px}.library-head{padding:0 16px 9px;display:flex;justify-content:space-between;align-items:center}.asset-list{padding:0 12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow:auto;max-height:320px}.asset{position:relative;border:1px solid var(--line);background:white;border-radius:12px;overflow:hidden;text-align:left;padding:7px;color:var(--ink);min-width:0}.asset.equipped{border:2px solid var(--pink);padding:6px;background:#effaff}.asset img{width:100%;height:100px;object-fit:contain;background:#edf8fc;border-radius:8px;display:block}.asset b{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:7px 2px 2px}.asset small{display:block;font-size:9px;color:var(--muted);margin:0 2px}.asset .remove{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:8px;background:#fff;color:#9c526e;font-weight:900;box-shadow:0 1px 5px #0002}.empty-library{grid-column:1/-1;text-align:center;color:var(--muted);font-size:11px;padding:25px 12px;line-height:1.65;background:#f0faff;border-radius:12px}
 .bottom-note{margin:0 12px 12px;padding:11px 12px;border-radius:12px;background:#eaf6fb;font-size:10px;color:#716773;line-height:1.55}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#33303a;color:#fff;padding:11px 16px;border-radius:12px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:10}.toast.show{opacity:1}
-@media(max-width:1050px){.layout{grid-template-columns:1fr}.right-panel{grid-column:auto;min-height:0}.asset-list{max-height:320px;grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.right-panel{grid-column:auto;min-height:0}.asset-list{max-height:320px;grid-template-columns:repeat(3,1fr)}.transform{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:680px){.app{padding:12px}.layout{grid-template-columns:1fr}.stage-panel{min-height:620px}.canvas-wrap{min-height:470px}.right-panel{grid-column:auto}.asset-list{grid-template-columns:repeat(2,1fr);max-height:360px}header{align-items:flex-start;flex-direction:column}.transform{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="app">
 <header>
- <div><div class="eyebrow">KIVOTOS · STUDENT CUSTOMIZATION SYSTEM</div><div class="brand">Kivotos-Dress-Up</div><div class="sub">학생별 베이스 · 의상 파츠 조합 · 레이어 편집 · 로컬 자동 저장</div></div>
+ <div><div class="eyebrow">KIVOTOS · STUDENT CUSTOMIZATION SYSTEM</div><div class="brand">Kivotos-Dress-Up</div><div class="sub">학생별 베이스 · 의상 파츠 조합 · 레이어 편집 · 파츠 직접 변형</div></div>
  <div class="header-actions"><button class="btn" id="exportProject">개인 백업</button><button class="btn" id="exportDefault">GitHub 기본 데이터 내보내기</button><label class="btn" for="importProject">백업 불러오기</label><input class="file-input" id="importProject" type="file" accept="application/json"><button class="btn primary" id="exportPng">현재 캐릭터 PNG 저장</button></div>
 </header>
 <div class="layout">
@@ -42,9 +49,10 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   <div class="stage-top"><div class="stage-title" id="stageTitle">시로코 <span>ABYDOS HIGH SCHOOL</span></div><button class="btn" id="resetOutfit">착장 초기화</button></div>
   <div class="canvas-wrap">
    <canvas id="preview" width="768" height="1152"></canvas>
-   <div class="empty" id="emptyState"><div class="empty-card"><strong>베이스 이미지가 아직 없어요</strong><p>선택한 학생의 기본 몸체·얼굴이 포함된 투명 PNG를 먼저 등록하세요.<br>각 파츠를 같은 768 × 1152 캔버스 좌표에 맞추면 자연스럽게 겹쳐집니다.</p></div></div>
+   <div class="empty" id="emptyState"><div class="empty-card"><strong>얼굴 이미지가 아직 없어요</strong><p>선택한 학생의 얼굴 투명 PNG를 먼저 등록하세요.<br>각 파츠를 같은 768 × 1152 캔버스 좌표에 맞추면 자연스럽게 겹쳐집니다.</p></div></div>
   </div>
-  <div class="canvas-foot"><span id="baseStatus">BASE NOT INSTALLED</span><span id="canvasSizeLabel">캔버스 768 × 1152</span></div>
+  <div class="canvas-foot"><span id="baseStatus">FACE NOT INSTALLED</span><span id="canvasSizeLabel">캔버스 768 × 1152</span></div>
+  <div class="tip">캔버스에서 파츠를 <b>클릭</b>해 선택 → <b>드래그</b>로 이동 · <b>모서리 점</b>으로 크기 조절(비율 유지 설정 따름) · <b>변 가운데 점</b>으로 가로/세로만 늘이기 · <b>위쪽 동그라미</b>로 회전 (Shift: 15° 단위)</div>
   <div class="ratio-controls">
    <strong>캔버스 비율</strong>
    <select id="ratioPreset" aria-label="캔버스 비율">
@@ -55,13 +63,20 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
    <button class="btn" id="applyRatio">비율 적용</button>
   </div>
   <section class="layer-panel">
-   <div class="layer-heading"><strong>레이어 순서</strong><span class="tiny">위쪽일수록 앞에 표시</span></div>
+   <div class="layer-heading"><strong>레이어 순서</strong><span class="tiny">위쪽일수록 앞에 표시 · 이름을 누르면 선택</span></div>
    <div id="layerList" class="layer-list"></div>
   </section>
   <div class="transform" id="transformControls">
-   <div class="range"><label><span>가로 이동</span><b id="xVal">0</b></label><input id="offsetX" type="range" min="-300" max="300" value="0"></div>
-   <div class="range"><label><span>세로 이동</span><b id="yVal">0</b></label><input id="offsetY" type="range" min="-400" max="400" value="0"></div>
-   <div class="range"><label><span>크기</span><b id="scaleVal">100%</b></label><input id="scale" type="range" min="30" max="200" value="100"></div>
+   <div class="transform-head">
+    <strong id="selName">편집 중: 얼굴</strong>
+    <label class="lock"><input type="checkbox" id="lockRatio" checked> 비율 유지</label>
+    <button class="btn" id="fitRatio">원본 비율로</button>
+    <button class="btn" id="resetPart">이 파츠 초기화</button>
+   </div>
+   <div class="range"><label><span>가로 이동</span><b id="xVal">0</b></label><input id="offsetX" type="range" min="-1024" max="1024" value="0"></div>
+   <div class="range"><label><span>세로 이동</span><b id="yVal">0</b></label><input id="offsetY" type="range" min="-1024" max="1024" value="0"></div>
+   <div class="range"><label><span>가로 크기</span><b id="scaleXVal">100%</b></label><input id="scaleX" type="range" min="10" max="400" value="100"></div>
+   <div class="range"><label><span>세로 크기</span><b id="scaleYVal">100%</b></label><input id="scaleY" type="range" min="10" max="400" value="100"></div>
    <div class="range"><label><span>회전</span><b id="rotationVal">0°</b></label><input id="rotation" type="range" min="-180" max="180" value="0"></div>
   </div>
  </main>
@@ -69,15 +84,16 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   <div class="panel-head"><div class="panel-title">파츠 라이브러리</div><div class="tiny" id="assetCount">0 ITEMS</div></div>
   <div class="category-tabs" id="categoryTabs"></div>
   <div class="import-box">
-   <div class="field"><label>편집 학생</label><select id="sourceStudent"></select></div>
-   <div class="field"><label>파츠 이름</label><input type="text" id="assetName" placeholder="파일명으로 자동 설정"></div>
+   <div class="field"><label>편집 학생</label><select id="sourceStudent"></select><button class="mini danger" id="deleteStudent" title="선택한 학생 삭제">삭제</button></div>
+   <div class="field"><label>학생 추가</label><input type="text" id="newStudentName" placeholder="새 학생 이름 입력" maxlength="20" autocomplete="off"><button class="mini" id="addStudent">추가</button></div>
+   <div class="field"><label>파츠 이름</label><input type="text" id="assetName" placeholder="비워 두면 (학생)_(파츠) 자동"></div>
    <label class="upload-label" for="assetFiles">＋ 투명 PNG 파츠 등록</label><input class="file-input" id="assetFiles" type="file" accept="image/png,image/webp,image/jpeg" multiple>
-   <div class="hint" id="uploadHint">선택한 학생의 베이스와 의상 파츠를 등록합니다.</div>
+   <div class="hint" id="uploadHint">선택한 학생의 얼굴·상의·하의 파츠를 등록합니다.</div>
   </div>
   <div class="search-field"><input id="assetSearch" type="search" placeholder="파일 이름 검색..." autocomplete="off"></div>
   <div class="library-head"><span class="tiny" id="libraryLabel">전체 파츠</span><span class="tiny">선택하면 즉시 장착</span></div>
   <div class="asset-list" id="assetList"></div>
-  <div class="bottom-note" id="categoryNote">레이어는 베이스 → 신발 → 하의 → 상의 → 장신구 순서로 합성됩니다. 파츠 이름으로 라이브러리를 검색할 수 있습니다.</div>
+  <div class="bottom-note" id="categoryNote">작업 내용은 자동 저장되지 않습니다. 새로고침하면 초기화되니 '개인 백업'으로 저장해 두세요.</div>
  </aside>
 </div>
 </div>
@@ -92,104 +108,167 @@ const STUDENTS=[
  {id:'terror',name:'시로코*테러',en:'SHIROKO＊TERROR',mark:'黒'}
 ];
 const CATS=[
- {id:'base',label:'베이스',en:'BASE'},
+ {id:'face',label:'얼굴',en:'FACE'},
  {id:'top',label:'상의',en:'TOP'},
- {id:'bottom',label:'하의',en:'BOTTOM'},
- {id:'shoes',label:'신발',en:'SHOES'},
- {id:'accessory',label:'장신구',en:'ACCESSORY'}
+ {id:'bottom',label:'하의',en:'BOTTOM'}
 ];
-const ORDER=['base','shoes','bottom','top','accessory'];
-const blankState=()=>({students:STUDENTS.map(s=>({...s})),assets:[],outfits:Object.fromEntries(STUDENTS.map(s=>[s.id,{base:null,hair:null,top:null,bottom:null,shoes:null,accessory:null,expression:null,transforms:{}}]))});
-let state=blankState(),current='shiroko',category='base';
-let drawSequence=0;
-const imageCache=new Map();
+const ORDER=['face','bottom','top'];
+const emptyOutfit=()=>({face:null,top:null,bottom:null,transforms:{},layerOrder:[...ORDER],hiddenLayers:[]});
+const blankState=()=>({students:STUDENTS.map(s=>({...s})),assets:[],outfits:Object.fromEntries(STUDENTS.map(s=>[s.id,emptyOutfit()]))});
+let state=blankState(),current='shiroko',category='face',selectedCat=null;
+let drawSequence=0,scene=[],drag=null;
+const imageCache=new Map(),alphaCache=new Map();
 const $=id=>document.getElementById(id);
-const dbPromise=new Promise((resolve,reject)=>{if(!('indexedDB'in window)){resolve(null);return;}const req=indexedDB.open('AbydosPaperDresser',1);req.onupgradeneeded=()=>req.result.createObjectStore('project');req.onsuccess=()=>resolve(req.result);req.onerror=()=>resolve(null)});
-async function persist(){try{const db=await dbPromise;if(!db)return;await new Promise((res,rej)=>{const tx=db.transaction('project','readwrite');tx.objectStore('project').put(state,'main');tx.oncomplete=res;tx.onerror=rej});}catch(e){toast('로컬 저장에 실패했습니다. 프로젝트 백업을 이용하세요.')}}
+
+/* ---------- project data (자동 저장 없음) ---------- */
 function normalizeProject(obj){
  if(!obj||!Array.isArray(obj.assets)||!obj.outfits) throw new Error('올바르지 않은 프로젝트 데이터');
- if(!Array.isArray(obj.students)) obj.students=STUDENTS.map(s=>({...s}));
- if(!obj.students.length) obj.students=STUDENTS.map(s=>({...s}));
+ if(!Array.isArray(obj.students)||!obj.students.length) obj.students=STUDENTS.map(s=>({...s}));
  for(const st of obj.students){
   if(!st.id) st.id='custom_'+Math.random().toString(36).slice(2,10);
   if(!st.name) st.name=st.id;
   if(!st.en) st.en=st.name.toUpperCase();
   if(!st.mark) st.mark=[...st.name][0]||'?';
-  if(!obj.outfits[st.id]) obj.outfits[st.id]={base:null,hair:null,top:null,bottom:null,shoes:null,accessory:null,expression:null,transforms:{}};
-  obj.outfits[st.id].transforms=obj.outfits[st.id].transforms||{};
-  obj.outfits[st.id].layerOrder=Array.isArray(obj.outfits[st.id].layerOrder)?obj.outfits[st.id].layerOrder:['base','shoes','bottom','top','accessory'];
-  obj.outfits[st.id].hiddenLayers=Array.isArray(obj.outfits[st.id].hiddenLayers)?obj.outfits[st.id].hiddenLayers:[];
+  if(!obj.outfits[st.id]) obj.outfits[st.id]=emptyOutfit();
+  const o=obj.outfits[st.id];
+  // 예전 분류(베이스/신발/장신구)를 얼굴/상의/하의 체계로 변환: 베이스 → 얼굴
+  const mapCat=c=>c==='base'?'face':c;
+  if(o.face==null&&o.base!=null)o.face=o.base;
+  delete o.base;
+  for(const k of ['hair','expression','shoes','accessory'])delete o[k];
+  for(const k of ORDER)if(o[k]===undefined)o[k]=null;
+  o.transforms=o.transforms||{};
+  if(o.transforms.base&&!o.transforms.face)o.transforms.face=o.transforms.base;
+  delete o.transforms.base;
+  // 예전 형식(scale 하나)을 가로/세로 크기로 변환
+  for(const k of Object.keys(o.transforms)){
+   const t=o.transforms[k]||{};
+   const legacy=t.scale!=null?Number(t.scale):100;
+   o.transforms[k]={x:Number(t.x)||0,y:Number(t.y)||0,sx:t.sx!=null?Number(t.sx):legacy,sy:t.sy!=null?Number(t.sy):legacy,rotation:Number(t.rotation)||0};
+  }
+  o.layerOrder=[...new Set((Array.isArray(o.layerOrder)?o.layerOrder:[]).map(mapCat))].filter(c=>ORDER.includes(c));
+  for(const c of ORDER)if(!o.layerOrder.includes(c))o.layerOrder.push(c);
+  o.hiddenLayers=(Array.isArray(o.hiddenLayers)?o.hiddenLayers:[]).map(mapCat).filter(c=>ORDER.includes(c));
  }
  obj.assets=obj.assets.filter(a=>a&&a.id&&a.category&&a.owner&&a.data);
+ for(const a of obj.assets)if(a.category==='base')a.category='face';
  return obj;
 }
-async function readLocalProject(){
- const db=await dbPromise; if(!db) return null;
- return await new Promise((resolve)=>{try{const tx=db.transaction('project','readonly');const req=tx.objectStore('project').get('main');req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>resolve(null);tx.onerror=()=>resolve(null)}catch(e){resolve(null)}});
-}
 async function restore(){
- let loaded=null;
- try{loaded=await readLocalProject();}catch(e){}
- if(loaded){try{state=normalizeProject(loaded);}catch(e){state=blankState();}}
- else {
-  // GitHub Pages: load the shared starter library. When opened as a local file,
-  // fetch may be blocked by the browser, so safely fall back to the empty starter.
-  try{const response=await fetch('./data/default-project.json',{cache:'no-store'});if(response.ok){state=normalizeProject(await response.json());await persist();}}
-  catch(e){state=blankState();}
- }
+ // GitHub Pages 등에서 공유 기본 라이브러리를 불러옵니다. 실패하면 빈 상태로 시작합니다.
+ try{const response=await fetch('./data/default-project.json',{cache:'no-store'});if(response.ok)state=normalizeProject(await response.json());}
+ catch(e){state=blankState();}
  if(!students().some(s=>s.id===current)) current=students()[0]?.id||'shiroko';
- if(!CATS.some(c=>c.id===category)) category='base';
+ selectedCat=equippedId(category)?category:null;
  renderAll();
 }
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),2400)}
 function students(){return state.students||STUDENTS}
-function studentName(id){return students().find(s=>s.id===id)?.name||id}
+function studentName(id){return students().find(s=>s.id===id)?.name||'삭제된 학생'}
 function assetById(id){return state.assets.find(a=>a.id===id)}
 function equippedId(cat){return state.outfits[current]?.[cat]||null}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 async function getImage(asset){if(imageCache.has(asset.id))return imageCache.get(asset.id);const promise=new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=asset.data});imageCache.set(asset.id,promise);return promise}
+
+/* ---------- 파츠 변형 데이터 ---------- */
+const DEF=()=>({x:0,y:0,sx:100,sy:100,rotation:0});
+function getT(cat){return Object.assign(DEF(),state.outfits[current].transforms[cat]||{})}
+function editT(cat){const o=state.outfits[current];return o.transforms[cat]=Object.assign(DEF(),o.transforms[cat]||{})}
+
+/* ---------- 그리기 ---------- */
+async function composeScene(){
+ const outfit=state.outfits[current],order=Array.isArray(outfit.layerOrder)?outfit.layerOrder:ORDER;
+ const layers=order.map(cat=>({cat,asset:assetById(equippedId(cat))})).filter(x=>x.asset&&!(outfit.hiddenLayers||[]).includes(x.cat));
+ const imgs=await Promise.all(layers.map(l=>getImage(l.asset).catch(()=>null)));
+ return layers.map((l,i)=>({...l,img:imgs[i]})).filter(l=>l.img);
+}
+function geomOf(cat,img,cw,ch){
+ const t=getT(cat),fit=Math.min(cw/img.naturalWidth,ch/img.naturalHeight);
+ const bw=img.naturalWidth*fit,bh=img.naturalHeight*fit;
+ return {cx:cw/2+t.x,cy:ch/2+t.y,w:bw*t.sx/100,h:bh*t.sy/100,bw,bh,rot:t.rotation};
+}
+function paintLayers(ctx,cw,ch,sc){
+ ctx.clearRect(0,0,cw,ch);
+ for(const l of sc){
+  const g=geomOf(l.cat,l.img,cw,ch);
+  ctx.save();ctx.translate(g.cx,g.cy);ctx.rotate(g.rot*Math.PI/180);
+  ctx.drawImage(l.img,-g.w/2,-g.h/2,g.w,g.h);ctx.restore();
+ }
+}
+const HANDLES={nw:[-1,-1],ne:[1,-1],se:[1,1],sw:[-1,1],n:[0,-1],e:[1,0],s:[0,1],w:[-1,0]};
+const CURSORS={nw:'nwse-resize',se:'nwse-resize',ne:'nesw-resize',sw:'nesw-resize',n:'ns-resize',s:'ns-resize',e:'ew-resize',w:'ew-resize',rot:'grab'};
+const ROT_OFF=30;
+function displayScale(){const c=$('preview'),w=c.getBoundingClientRect().width;return w>0?c.width/w:1}
+function drawSelection(ctx){
+ if(!selectedCat)return;
+ const l=scene.find(x=>x.cat===selectedCat);if(!l)return;
+ const c=$('preview'),k=displayScale(),g=geomOf(l.cat,l.img,c.width,c.height);
+ ctx.save();ctx.translate(g.cx,g.cy);ctx.rotate(g.rot*Math.PI/180);
+ ctx.lineWidth=1.5*k;ctx.strokeStyle='#42a9d8';ctx.setLineDash([6*k,4*k]);ctx.strokeRect(-g.w/2,-g.h/2,g.w,g.h);ctx.setLineDash([]);
+ ctx.beginPath();ctx.moveTo(0,-g.h/2);ctx.lineTo(0,-g.h/2-ROT_OFF*k);ctx.stroke();
+ ctx.fillStyle='#fff';ctx.lineWidth=2*k;
+ const s=8*k;
+ for(const [hx,hy] of Object.values(HANDLES)){ctx.beginPath();ctx.rect(hx*g.w/2-s/2,hy*g.h/2-s/2,s,s);ctx.fill();ctx.stroke();}
+ ctx.beginPath();ctx.arc(0,-g.h/2-ROT_OFF*k,6*k,0,Math.PI*2);ctx.fill();ctx.stroke();
+ ctx.restore();
+}
 async function draw(){
  const seq=++drawSequence,canvas=$('preview'),ctx=canvas.getContext('2d');
- const outfit=state.outfits[current],order=Array.isArray(outfit.layerOrder)?outfit.layerOrder:ORDER;
- const layers=order.map(cat=>({cat,asset:assetById(equippedId(cat)),transform:outfit.transforms[cat]||{x:0,y:0,scale:100,rotation:0}}))
-  .filter(x=>x.asset&&!(outfit.hiddenLayers||[]).includes(x.cat));
- const hasBase=!!assetById(equippedId('base'));
- const loaded=await Promise.all(layers.map(async layer=>{try{return await getImage(layer.asset)}catch(e){return null}}));
+ const sc=await composeScene();
  if(seq!==drawSequence)return;
- ctx.clearRect(0,0,canvas.width,canvas.height);
- layers.forEach((layer,i)=>{
-  const img=loaded[i];if(!img)return;
-  const t=layer.transform,fit=Math.min(canvas.width/img.naturalWidth,canvas.height/img.naturalHeight);
-  const scale=fit*(Number(t.scale||100)/100),w=img.naturalWidth*scale,h=img.naturalHeight*scale;
-  const cx=canvas.width/2+Number(t.x||0),cy=canvas.height/2+Number(t.y||0);
-  ctx.save();ctx.translate(cx,cy);ctx.rotate((Number(t.rotation)||0)*Math.PI/180);
-  ctx.drawImage(img,-w/2,-h/2,w,h);ctx.restore();
- });
- $('emptyState').style.display=hasBase?'none':'flex';$('baseStatus').textContent=hasBase?'BASE INSTALLED':'BASE NOT INSTALLED';$('baseStatus').style.color=hasBase?'#27845f':'#b65b7b';
+ scene=sc;
+ paintLayers(ctx,canvas.width,canvas.height,sc);
+ drawSelection(ctx);
+ const hasBase=!!assetById(equippedId('face'));
+ $('emptyState').style.display=hasBase?'none':'flex';$('baseStatus').textContent=hasBase?'FACE INSTALLED':'FACE NOT INSTALLED';$('baseStatus').style.color=hasBase?'#27845f':'#b65b7b';
 }
-function renderStudents(){$('sourceStudent').innerHTML=students().map(s=>`<option value="${s.id}">${s.name}</option>`).join('');$('sourceStudent').value=current;$('stageTitle').innerHTML=`${studentName(current)} <span>ABYDOS HIGH SCHOOL</span>`}
-function renderCats(){$('categoryTabs').innerHTML=CATS.map(c=>`<button class="cat ${category===c.id?'active':''}" data-cat="${c.id}">${c.label}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(el=>el.onclick=()=>{category=el.dataset.cat;renderCats();renderAssets();updateHint();renderLayers()});}
-function renderAssets(){const query=($('assetSearch')?.value||'').trim().toLocaleLowerCase();const filtered=state.assets.filter(a=>a.category===category&&(!query||String(a.name||'').toLocaleLowerCase().includes(query)));$('assetCount').textContent=`${filtered.length} ITEMS`;$('libraryLabel').textContent=`${CATS.find(c=>c.id===category).en} / ${query?'검색 결과':'전체 파츠'}`;if(!filtered.length){$('assetList').innerHTML=`<div class="empty-library">${query?'검색 결과가 없습니다.':'등록된 파츠가 없습니다.'}<br>${query?'파일 이름을 확인해 주세요.':'위에서 이미지 파일을 등록해 주세요.'}</div>`;return;}$('assetList').innerHTML=filtered.map(a=>`<div class="asset ${equippedId(category)===a.id?'equipped':''}"><button class="asset-select" data-asset="${a.id}" style="display:block;width:100%;padding:0;background:transparent;text-align:left;color:inherit"><img src="${a.data}" alt=""><b>${escapeHtml(a.name)}</b><small>${studentName(a.owner)} 등록</small></button><button class="remove" data-remove="${a.id}" title="삭제">×</button></div>`).join('');document.querySelectorAll('[data-asset]').forEach(el=>el.onclick=()=>equip(el.dataset.asset));document.querySelectorAll('[data-remove]').forEach(el=>el.onclick=e=>{e.stopPropagation();removeAsset(el.dataset.remove)});}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function updateHint(){$('uploadHint').textContent=`${studentName(current)} 학생의 ${CATS.find(x=>x.id===category).label} 파츠를 등록합니다.`;$('categoryNote').textContent='파츠를 선택하면 현재 편집 중인 학생에게 장착됩니다. 파일 이름 검색으로 원하는 파츠를 빠르게 찾을 수 있습니다.'}
-function setTransformUI(){const t=state.outfits[current].transforms[category]||{x:0,y:0,scale:100,rotation:0};$('offsetX').value=t.x??0;$('offsetY').value=t.y??0;$('scale').value=t.scale??100;$('rotation').value=t.rotation??0;$('xVal').textContent=t.x??0;$('yVal').textContent=t.y??0;$('scaleVal').textContent=(t.scale??100)+'%';$('rotationVal').textContent=(t.rotation??0)+'°'}
+
+/* ---------- 렌더링 ---------- */
+function renderStudents(){
+ $('sourceStudent').innerHTML=students().map(s=>`<option value="${escapeHtml(s.id)}">${escapeHtml(s.name)}</option>`).join('');
+ $('sourceStudent').value=current;
+ const s=students().find(x=>x.id===current);
+ const sub=s&&s.school!==undefined?s.school:'ABYDOS HIGH SCHOOL';
+ $('stageTitle').innerHTML=`${escapeHtml(studentName(current))}${sub?` <span>${escapeHtml(sub)}</span>`:''}`;
+}
+function renderCats(){$('categoryTabs').innerHTML=CATS.map(c=>`<button class="cat ${category===c.id?'active':''}" data-cat="${c.id}">${c.label}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(el=>el.onclick=()=>setCategory(el.dataset.cat));}
+function setCategory(c){category=c;selectedCat=equippedId(c)?c:null;renderCats();renderAssets();updateHint();setTransformUI();renderLayers();draw()}
+function renderAssets(){const query=($('assetSearch')?.value||'').trim().toLocaleLowerCase();const filtered=state.assets.filter(a=>a.category===category&&(!query||String(a.name||'').toLocaleLowerCase().includes(query)));$('assetCount').textContent=`${filtered.length} ITEMS`;$('libraryLabel').textContent=`${CATS.find(c=>c.id===category).en} / ${query?'검색 결과':'전체 파츠'}`;if(!filtered.length){$('assetList').innerHTML=`<div class="empty-library">${query?'검색 결과가 없습니다.':'등록된 파츠가 없습니다.'}<br>${query?'파일 이름을 확인해 주세요.':'위에서 이미지 파일을 등록해 주세요.'}</div>`;return;}$('assetList').innerHTML=filtered.map(a=>`<div class="asset ${equippedId(category)===a.id?'equipped':''}"><button class="asset-select" data-asset="${a.id}" style="display:block;width:100%;padding:0;background:transparent;text-align:left;color:inherit"><img src="${a.data}" alt=""><b>${escapeHtml(a.name)}</b><small>${escapeHtml(studentName(a.owner))} 등록</small></button><button class="remove" data-remove="${a.id}" title="삭제">×</button></div>`).join('');document.querySelectorAll('[data-asset]').forEach(el=>el.onclick=()=>equip(el.dataset.asset));document.querySelectorAll('[data-remove]').forEach(el=>el.onclick=e=>{e.stopPropagation();removeAsset(el.dataset.remove)});}
+function autoAssetName(owner,cat){
+ const base=`${studentName(owner)}_${CATS.find(x=>x.id===cat).label}`,used=new Set(state.assets.map(a=>a.name));
+ let n=1,name=base;while(used.has(name)){n++;name=`${base}_${n}`}
+ return name;
+}
+function updateHint(){const label=CATS.find(x=>x.id===category).label;$('uploadHint').textContent=`${studentName(current)} 학생의 ${label} 파츠를 등록합니다. 이름은 ${studentName(current)}_${label} 형식으로 자동 지정됩니다.`}
+function setTransformUI(){
+ const t=getT(category),r=n=>Math.round(n*10)/10;
+ $('offsetX').value=t.x;$('offsetY').value=t.y;$('scaleX').value=t.sx;$('scaleY').value=t.sy;$('rotation').value=t.rotation;
+ $('xVal').textContent=Math.round(t.x);$('yVal').textContent=Math.round(t.y);
+ $('scaleXVal').textContent=r(t.sx)+'%';$('scaleYVal').textContent=r(t.sy)+'%';$('rotationVal').textContent=r(t.rotation)+'°';
+ const c=CATS.find(x=>x.id===category);
+ $('selName').textContent=`편집 중: ${c.label}${equippedId(category)?'':' (장착 없음)'}`;
+}
 function renderLayers(){
  const outfit=state.outfits[current],order=outfit.layerOrder||ORDER;
- const labels={base:'베이스',shoes:'신발',bottom:'하의',top:'상의',accessory:'장신구'};
+ const labels={face:'얼굴',bottom:'하의',top:'상의'};
  const equipped=order.filter(cat=>equippedId(cat));
  if(!equipped.length){$('layerList').innerHTML='<div class="layer-empty">장착된 레이어가 없습니다.</div>';return;}
  $('layerList').innerHTML=[...equipped].reverse().map(cat=>{
   const visible=!(outfit.hiddenLayers||[]).includes(cat),idx=order.indexOf(cat);
-  return `<div class="layer-row"><span class="layer-name">${labels[cat]||cat}${visible?'':' · 숨김'}</span><button data-layer-vis="${cat}">${visible?'숨기기':'표시'}</button><button data-layer-up="${cat}" ${idx===order.length-1?'disabled':''}>앞으로</button><button data-layer-down="${cat}" ${idx===0?'disabled':''}>뒤로</button></div>`;
+  return `<div class="layer-row ${selectedCat===cat?'sel':''}"><span class="layer-name" data-layer-sel="${cat}">${labels[cat]||cat}${visible?'':' · 숨김'}</span><button data-layer-vis="${cat}">${visible?'숨기기':'표시'}</button><button data-layer-up="${cat}" ${idx===order.length-1?'disabled':''}>앞으로</button><button data-layer-down="${cat}" ${idx===0?'disabled':''}>뒤로</button></div>`;
  }).join('');
- document.querySelectorAll('[data-layer-vis]').forEach(b=>b.onclick=()=>{const c=b.dataset.layerVis;outfit.hiddenLayers=outfit.hiddenLayers||[];outfit.hiddenLayers=outfit.hiddenLayers.includes(c)?outfit.hiddenLayers.filter(x=>x!==c):[...outfit.hiddenLayers,c];persist();renderLayers();draw()});
+ document.querySelectorAll('[data-layer-sel]').forEach(b=>b.onclick=()=>setCategory(b.dataset.layerSel));
+ document.querySelectorAll('[data-layer-vis]').forEach(b=>b.onclick=()=>{const c=b.dataset.layerVis;outfit.hiddenLayers=outfit.hiddenLayers||[];outfit.hiddenLayers=outfit.hiddenLayers.includes(c)?outfit.hiddenLayers.filter(x=>x!==c):[...outfit.hiddenLayers,c];renderLayers();draw()});
  document.querySelectorAll('[data-layer-up]').forEach(b=>b.onclick=()=>moveLayer(b.dataset.layerUp,1));
  document.querySelectorAll('[data-layer-down]').forEach(b=>b.onclick=()=>moveLayer(b.dataset.layerDown,-1));
 }
-function moveLayer(cat,delta){const o=state.outfits[current];o.layerOrder=o.layerOrder||[...ORDER];const i=o.layerOrder.indexOf(cat),j=i+delta;if(i<0||j<0||j>=o.layerOrder.length)return;[o.layerOrder[i],o.layerOrder[j]]=[o.layerOrder[j],o.layerOrder[i]];persist();renderLayers();draw()}
+function moveLayer(cat,delta){const o=state.outfits[current];o.layerOrder=o.layerOrder||[...ORDER];const i=o.layerOrder.indexOf(cat),j=i+delta;if(i<0||j<0||j>=o.layerOrder.length)return;[o.layerOrder[i],o.layerOrder[j]]=[o.layerOrder[j],o.layerOrder[i]];renderLayers();draw()}
 function renderAll(){renderStudents();renderCats();renderAssets();updateHint();setTransformUI();renderLayers();draw()}
-function equip(id){const asset=assetById(id);if(!asset)return;if((category==='base'||category==='expression')&&asset.owner!==current){toast('이 파츠는 해당 학생 전용입니다.');return;}state.outfits[current][category]=id;persist();renderAssets();renderLayers();draw();toast(`${studentName(current)}에게 ${asset.name} 장착`)}
-function removeAsset(id){const asset=assetById(id);if(!asset)return;state.assets=state.assets.filter(a=>a.id!==id);for(const o of Object.values(state.outfits))for(const k of Object.keys(o))if(o[k]===id)o[k]=null;persist();renderAssets();renderLayers();draw();toast('파츠를 삭제했습니다.')}
+function equip(id){const asset=assetById(id);if(!asset)return;if(category==='face'&&asset.owner!==current){toast('이 파츠는 해당 학생 전용입니다.');return;}state.outfits[current][category]=id;selectedCat=category;renderAssets();renderLayers();setTransformUI();draw();toast(`${studentName(current)}에게 ${asset.name} 장착`)}
+function dropAssetRefs(id){for(const o of Object.values(state.outfits))for(const k of Object.keys(o))if(o[k]===id)o[k]=null;imageCache.delete(id);alphaCache.delete(id)}
+function removeAsset(id){const asset=assetById(id);if(!asset)return;state.assets=state.assets.filter(a=>a.id!==id);dropAssetRefs(id);if(selectedCat&&!equippedId(selectedCat))selectedCat=null;renderAssets();renderLayers();setTransformUI();draw();toast('파츠를 삭제했습니다.')}
 
+/* ---------- 캔버스 크기 ---------- */
 function applyCanvasSize(w,h){
  w=Math.max(128,Math.min(2048,Math.round(Number(w)||768)));
  h=Math.max(128,Math.min(2048,Math.round(Number(h)||1152)));
@@ -207,17 +286,163 @@ $('ratioPreset').onchange=()=>{
  $('canvasWidth').value=w;$('canvasHeight').value=h;applyCanvasSize(w,h);
 };
 $('applyRatio').onclick=()=>{applyCanvasSize($('canvasWidth').value,$('canvasHeight').value);$('ratioPreset').value='custom';toast('캔버스 비율을 적용했습니다.')};
+window.addEventListener('resize',()=>draw());
 
-$('assetFiles').addEventListener('change',async e=>{const files=[...e.target.files];if(!files.length)return;const owner=current;for(const f of files){if(!f.type.startsWith('image/'))continue;const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const baseName=$('assetName').value.trim();state.assets.push({id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(16).slice(2)),category,owner,name:baseName&&files.length===1?baseName:f.name.replace(/\.[^.]+$/,''),data});}if(category==='base'){const latest=state.assets.filter(a=>a.category==='base'&&a.owner===owner).at(-1);state.outfits[owner].base=latest?.id||null;}await persist();renderAssets();renderLayers();draw();e.target.value='';$('assetName').value='';toast(`${files.length}개 파츠를 등록했습니다.`)});
-$('sourceStudent').onchange=()=>{current=$('sourceStudent').value;renderAll()};
+/* ---------- 업로드 ---------- */
+$('assetFiles').addEventListener('change',async e=>{const files=[...e.target.files];if(!files.length)return;const owner=current;let added=0;for(const f of files){if(!f.type.startsWith('image/'))continue;const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const baseName=$('assetName').value.trim();state.assets.push({id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(16).slice(2)),category,owner,name:baseName&&files.length===1?baseName:autoAssetName(owner,category),data});added++}if(category==='face'){const latest=state.assets.filter(a=>a.category==='face'&&a.owner===owner).at(-1);state.outfits[owner].face=latest?.id||null;if(owner===current)selectedCat=latest?'face':null;}renderAssets();renderLayers();setTransformUI();draw();e.target.value='';$('assetName').value='';toast(`${added}개 파츠를 등록했습니다.`)});
+
+/* ---------- 학생 추가 / 삭제 ---------- */
+function addStudent(){
+ const name=$('newStudentName').value.trim();
+ if(!name){toast('학생 이름을 입력하세요.');return;}
+ if(students().some(s=>s.name===name)){toast('이미 같은 이름의 학생이 있습니다.');return;}
+ const id='custom_'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+ state.students.push({id,name,en:name.toUpperCase(),mark:[...name][0]||'?',school:''});
+ state.outfits[id]=emptyOutfit();
+ current=id;selectedCat=null;
+ $('newStudentName').value='';
+ renderAll();toast(`${name} 학생을 추가했습니다.`);
+}
+$('addStudent').onclick=addStudent;
+$('newStudentName').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();addStudent()}});
+$('deleteStudent').onclick=()=>{
+ if(students().length<=1){toast('마지막 학생은 삭제할 수 없습니다.');return;}
+ const name=studentName(current);
+ if(!confirm(`'${name}' 학생을 삭제할까요?\n이 학생의 얼굴 파츠도 함께 삭제됩니다.`))return;
+ const gone=state.assets.filter(a=>a.owner===current&&a.category==='face').map(a=>a.id);
+ state.assets=state.assets.filter(a=>!gone.includes(a.id));
+ gone.forEach(dropAssetRefs);
+ delete state.outfits[current];
+ state.students=state.students.filter(s=>s.id!==current);
+ current=state.students[0].id;
+ selectedCat=equippedId(category)?category:null;
+ renderAll();toast(`${name} 학생을 삭제했습니다.`);
+};
+$('sourceStudent').onchange=()=>{current=$('sourceStudent').value;selectedCat=equippedId(category)?category:null;renderAll()};
 $('assetSearch').addEventListener('input',renderAssets);
-['offsetX','offsetY','scale','rotation'].forEach(id=>$(id).addEventListener('input',()=>{const o=state.outfits[current];o.transforms[category]=o.transforms[category]||{x:0,y:0,scale:100,rotation:0};o.transforms[category].x=Number($('offsetX').value);o.transforms[category].y=Number($('offsetY').value);o.transforms[category].scale=Number($('scale').value);o.transforms[category].rotation=Number($('rotation').value);setTransformUI();draw();persist()}));
-$('resetOutfit').onclick=()=>{state.outfits[current]={base:state.outfits[current].base,hair:null,top:null,bottom:null,shoes:null,accessory:null,expression:null,transforms:{},layerOrder:['base','shoes','bottom','top','accessory'],hiddenLayers:[]};persist();renderAll();toast('베이스를 제외한 착장을 초기화했습니다.')};
-$('exportPng').onclick=async()=>{await draw();const c=$('preview');c.toBlob(blob=>{if(!blob){toast('PNG를 만들지 못했습니다.');return;}const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${studentName(current)}_paper_dresser.png`;a.click();URL.revokeObjectURL(a.href)},'image/png')};
+
+/* ---------- 슬라이더 ---------- */
+const clampS=v=>Math.min(1000,Math.max(5,v));
+function afterT(){setTransformUI();draw()}
+$('offsetX').addEventListener('input',()=>{editT(category).x=Number($('offsetX').value);afterT()});
+$('offsetY').addEventListener('input',()=>{editT(category).y=Number($('offsetY').value);afterT()});
+$('scaleX').addEventListener('input',()=>{const t=editT(category),v=Number($('scaleX').value),f=v/(t.sx||100);t.sx=v;if($('lockRatio').checked)t.sy=clampS(t.sy*f);afterT()});
+$('scaleY').addEventListener('input',()=>{const t=editT(category),v=Number($('scaleY').value),f=v/(t.sy||100);t.sy=v;if($('lockRatio').checked)t.sx=clampS(t.sx*f);afterT()});
+$('rotation').addEventListener('input',()=>{editT(category).rotation=Number($('rotation').value);afterT()});
+$('fitRatio').onclick=()=>{const t=editT(category);t.sy=t.sx;afterT();toast('가로·세로 크기를 같게 맞췄습니다.')};
+$('resetPart').onclick=()=>{delete state.outfits[current].transforms[category];afterT();toast('이 파츠의 위치·크기·회전을 초기화했습니다.')};
+
+/* ---------- 캔버스에서 직접 편집 ---------- */
+const cv=$('preview');
+function canvasPoint(e){const r=cv.getBoundingClientRect();return {x:(e.clientX-r.left)*cv.width/r.width,y:(e.clientY-r.top)*cv.height/r.height,k:cv.width/r.width}}
+function toLocal(g,p){const dx=p.x-g.cx,dy=p.y-g.cy,a=-g.rot*Math.PI/180,c=Math.cos(a),s=Math.sin(a);return {x:dx*c-dy*s,y:dx*s+dy*c}}
+function toCanvasPt(g,l){const a=g.rot*Math.PI/180,c=Math.cos(a),s=Math.sin(a);return {x:g.cx+l.x*c-l.y*s,y:g.cy+l.x*s+l.y*c}}
+function alphaAt(asset,img,u,v){
+ let a=alphaCache.get(asset.id);
+ if(!a){
+  const k=Math.min(1,512/Math.max(img.naturalWidth,img.naturalHeight));
+  const w=Math.max(1,Math.round(img.naturalWidth*k)),h=Math.max(1,Math.round(img.naturalHeight*k));
+  const c=document.createElement('canvas');c.width=w;c.height=h;
+  const cx=c.getContext('2d',{willReadFrequently:true});cx.drawImage(img,0,0,w,h);
+  try{a={w,h,d:cx.getImageData(0,0,w,h).data}}catch(e){a={w,h,d:null}}
+  alphaCache.set(asset.id,a);
+ }
+ if(!a.d)return true;
+ const x=Math.min(a.w-1,Math.max(0,Math.floor(u*a.w))),y=Math.min(a.h-1,Math.max(0,Math.floor(v*a.h)));
+ return a.d[(y*a.w+x)*4+3]>16;
+}
+function hitLayer(p){
+ for(let i=scene.length-1;i>=0;i--){
+  const l=scene[i],g=geomOf(l.cat,l.img,cv.width,cv.height),q=toLocal(g,p);
+  if(Math.abs(q.x)>g.w/2||Math.abs(q.y)>g.h/2)continue;
+  if(alphaAt(l.asset,l.img,q.x/g.w+.5,q.y/g.h+.5))return l.cat;
+ }
+ return null;
+}
+function insideBox(g,p){const q=toLocal(g,p);return Math.abs(q.x)<=g.w/2&&Math.abs(q.y)<=g.h/2}
+function hitHandle(g,p){
+ const q=toLocal(g,p),r=12*p.k;
+ if(Math.hypot(q.x,q.y+g.h/2+ROT_OFF*p.k)<r)return 'rot';
+ for(const [n,[hx,hy]] of Object.entries(HANDLES))if(Math.hypot(q.x-hx*g.w/2,q.y-hy*g.h/2)<r)return n;
+ return null;
+}
+function selLayer(){return selectedCat?scene.find(x=>x.cat===selectedCat):null}
+function selectLayer(cat){category=cat;selectedCat=cat;renderCats();renderAssets();updateHint();setTransformUI();renderLayers()}
+function beginDrag(e,mode,cat,g,p){drag={mode,cat,g,p0:p,t0:getT(cat)};try{cv.setPointerCapture(e.pointerId)}catch(_){}e.preventDefault()}
+cv.addEventListener('pointerdown',e=>{
+ if(e.button>0)return;
+ const p=canvasPoint(e),sel=selLayer();
+ let selG=null;
+ if(sel){selG=geomOf(sel.cat,sel.img,cv.width,cv.height);const h=hitHandle(selG,p);if(h){beginDrag(e,h,sel.cat,selG,p);return}}
+ const hit=hitLayer(p);
+ if(hit){
+  if(hit!==selectedCat||hit!==category)selectLayer(hit);
+  const l=scene.find(x=>x.cat===hit);
+  beginDrag(e,'move',hit,geomOf(l.cat,l.img,cv.width,cv.height),p);draw();return;
+ }
+ if(sel&&selG&&insideBox(selG,p)){beginDrag(e,'move',sel.cat,selG,p);return}
+ selectedCat=null;renderLayers();draw();
+});
+cv.addEventListener('pointermove',e=>{
+ const p=canvasPoint(e);
+ if(!drag){
+  let cur='default';const sel=selLayer();
+  if(sel){const g=geomOf(sel.cat,sel.img,cv.width,cv.height),h=hitHandle(g,p);if(h)cur=CURSORS[h];else if(hitLayer(p)||insideBox(g,p))cur='move';}
+  else if(hitLayer(p))cur='move';
+  cv.style.cursor=cur;return;
+ }
+ const g=drag.g,t=editT(drag.cat);
+ if(drag.mode==='move'){
+  t.x=Math.round(drag.t0.x+p.x-drag.p0.x);t.y=Math.round(drag.t0.y+p.y-drag.p0.y);
+ }else if(drag.mode==='rot'){
+  let ang=Math.atan2(p.y-g.cy,p.x-g.cx)*180/Math.PI+90;
+  if(e.shiftKey)ang=Math.round(ang/15)*15;
+  ang=((ang+180)%360+360)%360-180;
+  t.rotation=Math.round(ang*10)/10;
+ }else{
+  const [hx,hy]=HANDLES[drag.mode],q=toLocal(g,p);
+  let nw=g.w,nh=g.h,ax=0,ay=0;
+  if(hx!==0){ax=-hx*g.w/2;nw=Math.max(8,(q.x-ax)*hx)}
+  if(hy!==0){ay=-hy*g.h/2;nh=Math.max(8,(q.y-ay)*hy)}
+  if(hx!==0&&hy!==0&&$('lockRatio').checked){const k=Math.max(nw/g.w,nh/g.h);nw=g.w*k;nh=g.h*k}
+  const lc={x:hx!==0?ax+hx*nw/2:0,y:hy!==0?ay+hy*nh/2:0};
+  const c=toCanvasPt(g,lc);
+  t.x=Math.round(c.x-cv.width/2);t.y=Math.round(c.y-cv.height/2);
+  t.sx=clampS(Math.round(nw/g.bw*1000)/10);t.sy=clampS(Math.round(nh/g.bh*1000)/10);
+ }
+ setTransformUI();draw();
+});
+const endDrag=e=>{if(drag){try{cv.releasePointerCapture(e.pointerId)}catch(_){}drag=null}};
+cv.addEventListener('pointerup',endDrag);
+cv.addEventListener('pointercancel',endDrag);
+
+/* ---------- 초기화 / 내보내기 / 불러오기 ---------- */
+$('resetOutfit').onclick=()=>{
+ const old=state.outfits[current],keep=old.transforms.face?{face:old.transforms.face}:{};
+ state.outfits[current]={...emptyOutfit(),face:old.face,transforms:keep};
+ selectedCat=equippedId(category)&&category==='face'?'face':null;
+ renderAll();toast('얼굴을 제외한 착장을 초기화했습니다.');
+};
+$('exportPng').onclick=async()=>{
+ const sc=await composeScene(),off=document.createElement('canvas');
+ off.width=cv.width;off.height=cv.height;
+ paintLayers(off.getContext('2d'),off.width,off.height,sc);
+ off.toBlob(blob=>{if(!blob){toast('PNG를 만들지 못했습니다.');return;}const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${studentName(current)}_paper_dresser.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},'image/png');
+};
 function downloadProject(filename){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 $('exportProject').onclick=()=>downloadProject('kivotos_dress_up_backup.json');
 $('exportDefault').onclick=()=>{downloadProject('default-project.json');toast('다운로드한 파일을 GitHub 저장소의 data/default-project.json에 넣으세요.')};
-$('importProject').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const obj=JSON.parse(await f.text());if(!Array.isArray(obj.assets)||!obj.outfits)throw new Error('invalid');state=obj;if(!Array.isArray(state.students))state.students=STUDENTS.map(s=>({...s}));for(const st of state.students)if(!state.outfits[st.id])state.outfits[st.id]={base:null,hair:null,top:null,bottom:null,shoes:null,accessory:null,expression:null,transforms:{}};await persist();renderAll();toast('프로젝트를 불러왔습니다.')}catch(err){toast('올바른 프로젝트 백업 파일이 아닙니다.')}e.target.value=''};
+$('importProject').onchange=async e=>{
+ const f=e.target.files[0];if(!f)return;
+ try{
+  const obj=normalizeProject(JSON.parse(await f.text()));
+  state=obj;imageCache.clear();alphaCache.clear();
+  if(!students().some(s=>s.id===current))current=students()[0].id;
+  selectedCat=equippedId(category)?category:null;
+  renderAll();toast('프로젝트를 불러왔습니다.');
+ }catch(err){toast('올바른 프로젝트 백업 파일이 아닙니다.')}
+ e.target.value='';
+};
 restore();
 </script>
 </body>
