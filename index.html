@@ -8,8 +8,10 @@
 :root{--bg:#dff4ff;--panel:#f8fdff;--ink:#203746;--muted:#648092;--pink:#42a9d8;--pink2:#a9e1f7;--line:#c5e7f5;--navy:#24506a;--shadow:0 10px 30px #24506a14}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#eaf9ff 0%,#cceeff 48%,#e8f7ff 100%);color:var(--ink);font-family:Inter,"Pretendard","Noto Sans KR",system-ui,sans-serif}
 button,input,select{font:inherit}button{cursor:pointer;border:0} .app{max-width:1440px;margin:0 auto;padding:24px}
-header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:20px}.eyebrow{font-size:11px;letter-spacing:.23em;color:var(--pink);font-weight:900}.brand{font-size:clamp(24px,3vw,38px);font-weight:950;letter-spacing:-.05em;margin:3px 0}.sub{color:var(--muted);font-size:13px}.header-actions{display:flex;gap:8px;flex-wrap:wrap}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:20px}.eyebrow{font-size:11px;letter-spacing:.23em;color:var(--pink);font-weight:900}.brand{font-size:clamp(24px,3vw,38px);font-weight:950;letter-spacing:-.05em;margin:3px 0}.sub{color:var(--muted);font-size:13px}.header-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
 .btn{padding:10px 14px;border-radius:12px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;border:1px solid var(--line);box-shadow:0 2px 6px #4b34410a}.btn.primary{background:var(--pink);border-color:var(--pink);color:white}.btn.dark{background:var(--navy);border-color:var(--navy);color:white}.btn.danger{color:#a53b5d}.btn:disabled{opacity:.4;cursor:not-allowed}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}.lang button{padding:10px 12px;font-size:12px;font-weight:850;background:transparent;color:var(--muted)}.lang button.active{background:var(--navy);color:#fff}
+.name-input{width:200px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:12px;background:#fff;color:var(--ink)}
 .layout{display:grid;grid-template-columns:minmax(340px,1fr) 380px;gap:16px;align-items:stretch}.panel{background:var(--panel);border:1px solid #fff;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.panel-title{font-size:13px;font-weight:950;letter-spacing:.04em}.tiny{font-size:11px;color:var(--muted)}
 
 .stage-panel{padding:16px;display:flex;flex-direction:column;min-height:730px}.stage-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.stage-title{font-size:15px;font-weight:950}.stage-title span{font-size:11px;color:var(--muted);font-weight:600;margin-left:8px}.canvas-wrap{position:relative;flex:1;min-height:560px;border:1px solid #c8e6f2;border-radius:17px;overflow:hidden;background-color:#f0faff;background-image:linear-gradient(45deg,#d9edf6 25%,transparent 25%),linear-gradient(-45deg,#d9edf6 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d9edf6 75%),linear-gradient(-45deg,transparent 75%,#d9edf6 75%);background-size:22px 22px;background-position:0 0,0 11px,11px -11px,-11px 0;display:grid;place-items:center}
@@ -32,68 +34,75 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .layer-row .layer-name{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:750;cursor:pointer}
 .layer-row button{background:#eaf7fd;color:#28536a;border-radius:7px;padding:5px 8px;font-size:10px;font-weight:800}
 .layer-row button:disabled{opacity:.35;cursor:default}.layer-empty{font-size:11px;color:#718b9a;padding:8px}
-.right-panel{display:flex;flex-direction:column;min-height:730px}.category-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:12px}.cat{background:#eaf7fd;border:1px solid transparent;border-radius:10px;padding:9px 4px;font-size:11px;font-weight:850;color:#786875}.cat.active{background:#d8f1fc;border-color:#8fd4ef;color:#783b57}.import-box{margin:0 12px 12px;padding:12px;background:#effaff;border:1px dashed #a9dced;border-radius:14px}.import-box .field{display:flex;gap:8px;align-items:center;margin-bottom:8px}.field label{font-size:10px;color:var(--muted);width:66px;flex:none}.field select,.field input[type=text]{min-width:0;flex:1;border:1px solid var(--line);border-radius:8px;padding:7px 8px;background:white;color:var(--ink);font-size:11px}.mini{flex:none;padding:7px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);font-size:11px;font-weight:800;color:var(--ink)}.mini.danger{color:#a53b5d}.search-field{margin:0 12px 10px}.search-field input{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink);font-size:11px}.file-input{display:none}.upload-label{display:flex;justify-content:center;align-items:center;gap:6px;padding:10px;background:white;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:850;color:#7f3f5c;cursor:pointer}.hint{font-size:10px;color:var(--muted);line-height:1.55;margin-top:8px}.library-head{padding:0 16px 9px;display:flex;justify-content:space-between;align-items:center}.asset-list{padding:0 12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow:auto;max-height:320px}.asset{position:relative;border:1px solid var(--line);background:white;border-radius:12px;overflow:hidden;text-align:left;padding:7px;color:var(--ink);min-width:0}.asset.equipped{border:2px solid var(--pink);padding:6px;background:#effaff}.asset img{width:100%;height:100px;object-fit:contain;background:#edf8fc;border-radius:8px;display:block}.asset b{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:7px 2px 2px}.asset small{display:block;font-size:9px;color:var(--muted);margin:0 2px}.asset .remove{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:8px;background:#fff;color:#9c526e;font-weight:900;box-shadow:0 1px 5px #0002}.empty-library{grid-column:1/-1;text-align:center;color:var(--muted);font-size:11px;padding:25px 12px;line-height:1.65;background:#f0faff;border-radius:12px}
+.right-panel{display:flex;flex-direction:column;min-height:730px}.category-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:12px}.cat{background:#eaf7fd;border:1px solid transparent;border-radius:10px;padding:9px 4px;font-size:11px;font-weight:850;color:#786875}.cat.active{background:#d8f1fc;border-color:#8fd4ef;color:#783b57}.import-box{margin:0 12px 12px;padding:12px;background:#effaff;border:1px dashed #a9dced;border-radius:14px}.import-box .field{display:flex;gap:8px;align-items:center;margin-bottom:8px}.field label{font-size:10px;color:var(--muted);width:66px;flex:none}.field select,.field input[type=text]{min-width:0;flex:1;border:1px solid var(--line);border-radius:8px;padding:7px 8px;background:white;color:var(--ink);font-size:11px}.mini{flex:none;padding:7px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);font-size:11px;font-weight:800;color:var(--ink)}.mini.danger{color:#a53b5d}.search-field{margin:0 12px 10px}.search-field input{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink);font-size:11px}.file-input{display:none}.upload-label{display:flex;justify-content:center;align-items:center;gap:6px;padding:10px;background:white;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:850;color:#7f3f5c;cursor:pointer}.hint{font-size:10px;color:var(--muted);line-height:1.55;margin-top:8px}.library-head{padding:0 16px 9px;display:flex;justify-content:space-between;align-items:center}.asset-list{padding:0 12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow:auto;max-height:320px}.asset{position:relative;border:1px solid var(--line);background:white;border-radius:12px;overflow:hidden;text-align:left;padding:7px;color:var(--ink);min-width:0}.asset.equipped{border:2px solid var(--pink);padding:6px;background:#effaff}.asset img{width:100%;height:100px;object-fit:contain;background:#edf8fc;border-radius:8px;display:block}.asset b{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:7px 2px 2px}.asset small{display:block;font-size:9px;color:var(--muted);margin:0 2px}.asset .remove,.asset .rename{position:absolute;top:10px;width:22px;height:22px;border-radius:8px;background:#fff;color:#9c526e;font-weight:900;box-shadow:0 1px 5px #0002}.asset .remove{right:10px}.asset .rename{right:36px;color:#28536a;font-size:12px}.empty-library{grid-column:1/-1;text-align:center;color:var(--muted);font-size:11px;padding:25px 12px;line-height:1.65;background:#f0faff;border-radius:12px}
 .bottom-note{margin:0 12px 12px;padding:11px 12px;border-radius:12px;background:#eaf6fb;font-size:10px;color:#716773;line-height:1.55}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#33303a;color:#fff;padding:11px 16px;border-radius:12px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:10}.toast.show{opacity:1}
 @media(max-width:1050px){.layout{grid-template-columns:1fr}.right-panel{grid-column:auto;min-height:0}.asset-list{max-height:320px;grid-template-columns:repeat(3,1fr)}.transform{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:680px){.app{padding:12px}.layout{grid-template-columns:1fr}.stage-panel{min-height:620px}.canvas-wrap{min-height:470px}.right-panel{grid-column:auto}.asset-list{grid-template-columns:repeat(2,1fr);max-height:360px}header{align-items:flex-start;flex-direction:column}.transform{grid-template-columns:1fr}}
+@media(max-width:680px){.app{padding:12px}.layout{grid-template-columns:1fr}.stage-panel{min-height:620px}.canvas-wrap{min-height:470px}.right-panel{grid-column:auto}.asset-list{grid-template-columns:repeat(2,1fr);max-height:360px}header{align-items:flex-start;flex-direction:column}.header-actions{justify-content:flex-start}.transform{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="app">
 <header>
- <div><div class="eyebrow">KIVOTOS · STUDENT CUSTOMIZATION SYSTEM</div><div class="brand">Kivotos-Dress-Up</div><div class="sub">학생별 베이스 · 의상 파츠 조합 · 레이어 편집 · 파츠 직접 변형</div></div>
- <div class="header-actions"><button class="btn" id="exportProject">개인 백업</button><button class="btn" id="exportDefault">GitHub 기본 데이터 내보내기</button><label class="btn" for="importProject">백업 불러오기</label><input class="file-input" id="importProject" type="file" accept="application/json"><button class="btn primary" id="exportPng">현재 캐릭터 PNG 저장</button></div>
+ <div><div class="eyebrow">KIVOTOS · STUDENT CUSTOMIZATION SYSTEM</div><div class="brand">Kivotos-Dress-Up</div><div class="sub" data-i18n="sub"></div></div>
+ <div class="header-actions">
+  <div class="lang" role="group" aria-label="Language"><button id="langKo" class="active">KOR</button><button id="langEn">ENG</button></div>
+  <button class="btn" id="exportProject" data-i18n="backup"></button>
+  <button class="btn" id="exportDefault" data-i18n="exportDefault"></button>
+  <label class="btn" for="importProject" data-i18n="importBackup"></label><input class="file-input" id="importProject" type="file" accept="application/json">
+  <input class="name-input" id="exportName" type="text" autocomplete="off" data-i18n-title="exportNameTitle">
+  <button class="btn primary" id="exportPng" data-i18n="exportPng"></button>
+ </div>
 </header>
 <div class="layout">
  <main class="panel stage-panel">
-  <div class="stage-top"><div class="stage-title" id="stageTitle">시로코 <span>ABYDOS HIGH SCHOOL</span></div><button class="btn" id="resetOutfit">착장 초기화</button></div>
+  <div class="stage-top"><div class="stage-title" id="stageTitle"></div><button class="btn" id="resetOutfit" data-i18n="resetOutfit"></button></div>
   <div class="canvas-wrap">
    <canvas id="preview" width="768" height="1152"></canvas>
-   <div class="empty" id="emptyState"><div class="empty-card"><strong>얼굴 이미지가 아직 없어요</strong><p>선택한 학생의 얼굴 투명 PNG를 먼저 등록하세요.<br>각 파츠를 같은 768 × 1152 캔버스 좌표에 맞추면 자연스럽게 겹쳐집니다.</p></div></div>
+   <div class="empty" id="emptyState"><div class="empty-card"><strong data-i18n="emptyTitle"></strong><p data-i18n-html="emptyBody"></p></div></div>
   </div>
-  <div class="canvas-foot"><span id="baseStatus">FACE NOT INSTALLED</span><span id="canvasSizeLabel">캔버스 768 × 1152</span></div>
-  <div class="tip">캔버스에서 파츠를 <b>클릭</b>해 선택 → <b>드래그</b>로 이동 · <b>모서리 점</b>으로 크기 조절(비율 유지 설정 따름) · <b>변 가운데 점</b>으로 가로/세로만 늘이기 · <b>위쪽 동그라미</b>로 회전 (Shift: 15° 단위)</div>
+  <div class="canvas-foot"><span id="baseStatus"></span><span id="canvasSizeLabel"></span></div>
+  <div class="tip" data-i18n-html="tip"></div>
   <div class="ratio-controls">
-   <strong>캔버스 비율</strong>
-   <select id="ratioPreset" aria-label="캔버스 비율">
-    <option value="2:3">2 : 3 (기본)</option><option value="3:4">3 : 4</option><option value="4:5">4 : 5</option><option value="1:1">1 : 1</option><option value="16:9">16 : 9</option><option value="custom">직접 입력</option>
+   <strong data-i18n="ratioTitle"></strong>
+   <select id="ratioPreset" data-i18n-aria="ratioTitle">
+    <option value="2:3" data-i18n="ratioDefault"></option><option value="3:4">3 : 4</option><option value="4:5">4 : 5</option><option value="1:1">1 : 1</option><option value="16:9">16 : 9</option><option value="custom" data-i18n="ratioCustom"></option>
    </select>
-   <label>가로 <input id="canvasWidth" type="number" min="128" max="2048" value="768"></label>
-   <label>세로 <input id="canvasHeight" type="number" min="128" max="2048" value="1152"></label>
-   <button class="btn" id="applyRatio">비율 적용</button>
+   <label><span data-i18n="w"></span> <input id="canvasWidth" type="number" min="128" max="2048" value="768"></label>
+   <label><span data-i18n="h"></span> <input id="canvasHeight" type="number" min="128" max="2048" value="1152"></label>
+   <button class="btn" id="applyRatio" data-i18n="applyRatio"></button>
   </div>
   <section class="layer-panel">
-   <div class="layer-heading"><strong>레이어 순서</strong><span class="tiny">위쪽일수록 앞에 표시 · 이름을 누르면 선택</span></div>
+   <div class="layer-heading"><strong data-i18n="layerTitle"></strong><span class="tiny" data-i18n="layerHint"></span></div>
    <div id="layerList" class="layer-list"></div>
   </section>
   <div class="transform" id="transformControls">
    <div class="transform-head">
-    <strong id="selName">편집 중: 얼굴</strong>
-    <label class="lock"><input type="checkbox" id="lockRatio" checked> 비율 유지</label>
-    <button class="btn" id="fitRatio">원본 비율로</button>
-    <button class="btn" id="resetPart">이 파츠 초기화</button>
+    <strong id="selName"></strong>
+    <label class="lock"><input type="checkbox" id="lockRatio" checked> <span data-i18n="lockRatio"></span></label>
+    <button class="btn" id="fitRatio" data-i18n="fitRatio"></button>
+    <button class="btn" id="resetPart" data-i18n="resetPart"></button>
    </div>
-   <div class="range"><label><span>가로 이동</span><b id="xVal">0</b></label><input id="offsetX" type="range" min="-1024" max="1024" value="0"></div>
-   <div class="range"><label><span>세로 이동</span><b id="yVal">0</b></label><input id="offsetY" type="range" min="-1024" max="1024" value="0"></div>
-   <div class="range"><label><span>가로 크기</span><b id="scaleXVal">100%</b></label><input id="scaleX" type="range" min="10" max="400" value="100"></div>
-   <div class="range"><label><span>세로 크기</span><b id="scaleYVal">100%</b></label><input id="scaleY" type="range" min="10" max="400" value="100"></div>
-   <div class="range"><label><span>회전</span><b id="rotationVal">0°</b></label><input id="rotation" type="range" min="-180" max="180" value="0"></div>
+   <div class="range"><label><span data-i18n="moveX"></span><b id="xVal">0</b></label><input id="offsetX" type="range" min="-1024" max="1024" value="0"></div>
+   <div class="range"><label><span data-i18n="moveY"></span><b id="yVal">0</b></label><input id="offsetY" type="range" min="-1024" max="1024" value="0"></div>
+   <div class="range"><label><span data-i18n="scaleW"></span><b id="scaleXVal">100%</b></label><input id="scaleX" type="range" min="10" max="400" value="100"></div>
+   <div class="range"><label><span data-i18n="scaleH"></span><b id="scaleYVal">100%</b></label><input id="scaleY" type="range" min="10" max="400" value="100"></div>
+   <div class="range"><label><span data-i18n="rotate"></span><b id="rotationVal">0°</b></label><input id="rotation" type="range" min="-180" max="180" value="0"></div>
   </div>
  </main>
  <aside class="panel right-panel">
-  <div class="panel-head"><div class="panel-title">파츠 라이브러리</div><div class="tiny" id="assetCount">0 ITEMS</div></div>
+  <div class="panel-head"><div class="panel-title" data-i18n="libTitle"></div><div class="tiny" id="assetCount">0 ITEMS</div></div>
   <div class="category-tabs" id="categoryTabs"></div>
   <div class="import-box">
-   <div class="field"><label>편집 학생</label><select id="sourceStudent"></select><button class="mini danger" id="deleteStudent" title="선택한 학생 삭제">삭제</button></div>
-   <div class="field"><label>학생 추가</label><input type="text" id="newStudentName" placeholder="새 학생 이름 입력" maxlength="20" autocomplete="off"><button class="mini" id="addStudent">추가</button></div>
-   <div class="field"><label>파츠 이름</label><input type="text" id="assetName" placeholder="비워 두면 (학생)_(파츠) 자동"></div>
-   <label class="upload-label" for="assetFiles">＋ 투명 PNG 파츠 등록</label><input class="file-input" id="assetFiles" type="file" accept="image/png,image/webp,image/jpeg" multiple>
-   <div class="hint" id="uploadHint">선택한 학생의 얼굴·상의·하의 파츠를 등록합니다.</div>
+   <div class="field"><label data-i18n="student"></label><select id="sourceStudent"></select><button class="mini danger" id="deleteStudent" data-i18n="delete" data-i18n-title="deleteTitle"></button></div>
+   <div class="field"><label data-i18n="addStudentLabel"></label><input type="text" id="newStudentName" data-i18n-ph="newStudentPh" maxlength="20" autocomplete="off"><button class="mini" id="addStudent" data-i18n="add"></button></div>
+   <div class="field"><label data-i18n="fileName"></label><input type="text" id="assetName" data-i18n-ph="fileNamePh" autocomplete="off"></div>
+   <label class="upload-label" for="assetFiles" data-i18n="upload"></label><input class="file-input" id="assetFiles" type="file" accept="image/png,image/webp,image/jpeg" multiple>
+   <div class="hint" id="uploadHint"></div>
   </div>
-  <div class="search-field"><input id="assetSearch" type="search" placeholder="파일 이름 검색..." autocomplete="off"></div>
-  <div class="library-head"><span class="tiny" id="libraryLabel">전체 파츠</span><span class="tiny">선택하면 즉시 장착</span></div>
+  <div class="search-field"><input id="assetSearch" type="search" data-i18n-ph="searchPh" autocomplete="off"></div>
+  <div class="library-head"><span class="tiny" id="libraryLabel"></span><span class="tiny" data-i18n="clickEquip"></span></div>
   <div class="asset-list" id="assetList"></div>
-  <div class="bottom-note" id="categoryNote">작업 내용은 자동 저장되지 않습니다. 새로고침하면 초기화되니 '개인 백업'으로 저장해 두세요.</div>
+  <div class="bottom-note" id="categoryNote" data-i18n="note"></div>
  </aside>
 </div>
 </div>
@@ -107,18 +116,105 @@ const STUDENTS=[
  {id:'ayane',name:'아야네',en:'AYANE',mark:'綾'},
  {id:'terror',name:'시로코*테러',en:'SHIROKO＊TERROR',mark:'黒'}
 ];
+const EN_NAMES={shiroko:'Shiroko',hoshino:'Hoshino',serika:'Serika',nonomi:'Nonomi',ayane:'Ayane',terror:'Shiroko*Terror'};
 const CATS=[
- {id:'face',label:'얼굴',en:'FACE'},
- {id:'top',label:'상의',en:'TOP'},
- {id:'bottom',label:'하의',en:'BOTTOM'}
+ {id:'face',en:'FACE'},
+ {id:'top',en:'TOP'},
+ {id:'bottom',en:'BOTTOM'}
 ];
 const ORDER=['face','bottom','top'];
 const emptyOutfit=()=>({face:null,top:null,bottom:null,transforms:{},layerOrder:[...ORDER],hiddenLayers:[]});
 const blankState=()=>({students:STUDENTS.map(s=>({...s})),assets:[],outfits:Object.fromEntries(STUDENTS.map(s=>[s.id,emptyOutfit()]))});
-let state=blankState(),current='shiroko',category='face',selectedCat=null;
+let state=blankState(),current='shiroko',category='face',selectedCat=null,lang='ko';
 let drawSequence=0,scene=[],drag=null;
 const imageCache=new Map(),alphaCache=new Map();
 const $=id=>document.getElementById(id);
+
+/* ---------- 언어 (KOR / ENG) ---------- */
+const I18N={
+ko:{
+ sub:'학생별 얼굴 · 의상 파츠 조합 · 레이어 편집 · 파츠 직접 변형',
+ backup:'개인 백업',exportDefault:'GitHub 기본 데이터 내보내기',importBackup:'백업 불러오기',exportPng:'현재 캐릭터 PNG 저장',
+ exportNameTitle:'PNG로 저장할 파일 이름 (비워 두면 자동 이름)',
+ resetOutfit:'착장 초기화',
+ emptyTitle:'장착된 파츠가 없어요',
+ emptyBody:'오른쪽 파츠 라이브러리에서 얼굴·상의·하의 투명 PNG를 등록한 뒤 클릭해 장착하세요.<br>각 파츠를 같은 크기의 캔버스로 만들면 자연스럽게 겹쳐집니다.',
+ faceOn:'얼굴 장착됨',faceOff:'얼굴 없음',
+ canvasLabel:(w,h)=>`캔버스 ${w} × ${h}`,
+ tip:'캔버스에서 파츠를 <b>클릭</b>해 선택 → <b>드래그</b>로 이동 · <b>모서리 점</b>으로 크기 조절(비율 유지 설정 따름) · <b>변 가운데 점</b>으로 가로/세로만 늘이기 · <b>위쪽 동그라미</b>로 회전 (Shift: 15° 단위)',
+ ratioTitle:'캔버스 비율',ratioDefault:'2 : 3 (기본)',ratioCustom:'직접 입력',w:'가로',h:'세로',applyRatio:'비율 적용',
+ layerTitle:'레이어 순서',layerHint:'위쪽일수록 앞에 표시 · 이름을 누르면 선택',
+ editing:(label,eq)=>`편집 중: ${label}${eq?'':' (장착 없음)'}`,
+ lockRatio:'비율 유지',fitRatio:'원본 비율로',resetPart:'이 파츠 초기화',
+ moveX:'가로 이동',moveY:'세로 이동',scaleW:'가로 크기',scaleH:'세로 크기',rotate:'회전',
+ libTitle:'파츠 라이브러리',
+ cat_face:'얼굴',cat_top:'상의',cat_bottom:'하의',
+ student:'편집 학생',delete:'삭제',deleteTitle:'선택한 학생 삭제',addStudentLabel:'학생 추가',newStudentPh:'새 학생 이름 입력',add:'추가',
+ fileName:'파일 이름',fileNamePh:'비우면 (학생)_(파츠) 자동',
+ upload:'＋ 투명 PNG 파츠 등록',
+ uploadHint:(s,c)=>`${s} 학생의 ${c} 파츠로 등록합니다. 이름은 ${s}_${c} 형식으로 자동 지정되며, 위 칸에 입력하면 그 이름이 쓰입니다.`,
+ searchPh:'파일 이름 검색...',allParts:'전체 파츠',results:'검색 결과',clickEquip:'선택하면 즉시 장착',
+ note:"작업 내용은 자동 저장되지 않습니다. 새로고침하면 초기화되니 '개인 백업'으로 저장해 두세요.",
+ noResults:'검색 결과가 없습니다.',noParts:'등록된 파츠가 없습니다.',checkName:'파일 이름을 확인해 주세요.',uploadAbove:'위에서 이미지 파일을 등록해 주세요.',
+ uploadedBy:s=>`${s} 등록`,renameTitle:'이름 변경',removeTitle:'삭제',renamePrompt:'새 파일 이름',renamed:'이름을 변경했습니다.',
+ deletedStudent:'삭제된 학생',
+ layerEmpty:'장착된 레이어가 없습니다.',hidden:' · 숨김',hide:'숨기기',show:'표시',forward:'앞으로',backward:'뒤로',
+ equipped:(s,n)=>`${s}에게 ${n} 장착`,partDeleted:'파츠를 삭제했습니다.',ratioApplied:'캔버스 비율을 적용했습니다.',
+ uploaded:n=>`${n}개 파츠를 등록했습니다.`,
+ needName:'학생 이름을 입력하세요.',dupName:'이미 같은 이름의 학생이 있습니다.',studentAdded:n=>`${n} 학생을 추가했습니다.`,
+ lastStudent:'마지막 학생은 삭제할 수 없습니다.',confirmDelete:n=>`'${n}' 학생을 삭제할까요?\n등록한 파츠는 라이브러리에 남습니다.`,studentDeleted:n=>`${n} 학생을 삭제했습니다.`,
+ fitDone:'가로·세로 크기를 같게 맞췄습니다.',partReset:'이 파츠의 위치·크기·회전을 초기화했습니다.',outfitReset:'얼굴을 제외한 착장을 초기화했습니다.',
+ pngFail:'PNG를 만들지 못했습니다.',defaultToast:'다운로드한 파일을 GitHub 저장소의 data/default-project.json에 넣으세요.',
+ imported:'프로젝트를 불러왔습니다.',badBackup:'올바른 프로젝트 백업 파일이 아닙니다.'
+},
+en:{
+ sub:'Per-student faces · outfit parts · layer editing · direct part transform',
+ backup:'My backup',exportDefault:'Export GitHub default data',importBackup:'Import backup',exportPng:'Save character PNG',
+ exportNameTitle:'File name for the saved PNG (auto name if empty)',
+ resetOutfit:'Reset outfit',
+ emptyTitle:'No parts equipped yet',
+ emptyBody:'Upload transparent PNGs for face, top and bottom in the part library on the right, then click one to equip it.<br>Parts made at the same canvas size overlap naturally.',
+ faceOn:'FACE EQUIPPED',faceOff:'NO FACE',
+ canvasLabel:(w,h)=>`Canvas ${w} × ${h}`,
+ tip:'<b>Click</b> a part on the canvas to select it → <b>drag</b> to move · <b>corner dots</b> resize (follows “Lock ratio”) · <b>edge dots</b> stretch width or height only · <b>top circle</b> rotates (Shift: 15° steps)',
+ ratioTitle:'Canvas ratio',ratioDefault:'2 : 3 (default)',ratioCustom:'Custom',w:'Width',h:'Height',applyRatio:'Apply',
+ layerTitle:'Layer order',layerHint:'Top = in front · click a name to select',
+ editing:(label,eq)=>`Editing: ${label}${eq?'':' (nothing equipped)'}`,
+ lockRatio:'Lock ratio',fitRatio:'Original ratio',resetPart:'Reset this part',
+ moveX:'Move X',moveY:'Move Y',scaleW:'Width',scaleH:'Height',rotate:'Rotate',
+ libTitle:'Part library',
+ cat_face:'Face',cat_top:'Top',cat_bottom:'Bottom',
+ student:'Student',delete:'Delete',deleteTitle:'Delete selected student',addStudentLabel:'Add student',newStudentPh:'New student name',add:'Add',
+ fileName:'File name',fileNamePh:'Auto: (student)_(part) if empty',
+ upload:'+ Upload transparent PNG parts',
+ uploadHint:(s,c)=>`Uploads as ${s}’s ${c} parts. Named “${s}_${c}” automatically, or type a name above to use it instead.`,
+ searchPh:'Search file names...',allParts:'All parts',results:'Search results',clickEquip:'Click to equip',
+ note:'Your work is not saved automatically. Refreshing resets everything, so use “My backup” to keep it.',
+ noResults:'No results.',noParts:'No parts yet.',checkName:'Check the file name.',uploadAbove:'Upload image files above.',
+ uploadedBy:s=>`by ${s}`,renameTitle:'Rename',removeTitle:'Delete',renamePrompt:'New file name',renamed:'Renamed.',
+ deletedStudent:'Deleted student',
+ layerEmpty:'No layers equipped.',hidden:' · hidden',hide:'Hide',show:'Show',forward:'Forward',backward:'Back',
+ equipped:(s,n)=>`Equipped ${n} on ${s}`,partDeleted:'Part deleted.',ratioApplied:'Canvas ratio applied.',
+ uploaded:n=>`${n} part(s) uploaded.`,
+ needName:'Enter a student name.',dupName:'A student with that name already exists.',studentAdded:n=>`Added student ${n}.`,
+ lastStudent:'You can’t delete the last student.',confirmDelete:n=>`Delete student '${n}'?\nUploaded parts stay in the library.`,studentDeleted:n=>`Deleted student ${n}.`,
+ fitDone:'Width and height matched.',partReset:'Part position, size and rotation reset.',outfitReset:'Outfit reset (face kept).',
+ pngFail:'Could not create the PNG.',defaultToast:'Put the downloaded file at data/default-project.json in your GitHub repo.',
+ imported:'Project imported.',badBackup:'This is not a valid project backup file.'
+}};
+const t=(k,...a)=>{const v=I18N[lang][k]??I18N.ko[k]??k;return typeof v==='function'?v(...a):v};
+const catLabel=id=>t('cat_'+id);
+function applyStatic(){
+ document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=t(el.dataset.i18n));
+ document.querySelectorAll('[data-i18n-html]').forEach(el=>el.innerHTML=t(el.dataset.i18nHtml));
+ document.querySelectorAll('[data-i18n-ph]').forEach(el=>el.placeholder=t(el.dataset.i18nPh));
+ document.querySelectorAll('[data-i18n-title]').forEach(el=>el.title=t(el.dataset.i18nTitle));
+ document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria)));
+ document.documentElement.lang=lang;
+ $('langKo').classList.toggle('active',lang==='ko');$('langEn').classList.toggle('active',lang==='en');
+ $('canvasSizeLabel').textContent=t('canvasLabel',$('preview').width,$('preview').height);
+}
+function setLang(l){lang=l;applyStatic();renderAll()}
 
 /* ---------- project data (자동 저장 없음) ---------- */
 function normalizeProject(obj){
@@ -142,9 +238,9 @@ function normalizeProject(obj){
   delete o.transforms.base;
   // 예전 형식(scale 하나)을 가로/세로 크기로 변환
   for(const k of Object.keys(o.transforms)){
-   const t=o.transforms[k]||{};
-   const legacy=t.scale!=null?Number(t.scale):100;
-   o.transforms[k]={x:Number(t.x)||0,y:Number(t.y)||0,sx:t.sx!=null?Number(t.sx):legacy,sy:t.sy!=null?Number(t.sy):legacy,rotation:Number(t.rotation)||0};
+   const tr=o.transforms[k]||{};
+   const legacy=tr.scale!=null?Number(tr.scale):100;
+   o.transforms[k]={x:Number(tr.x)||0,y:Number(tr.y)||0,sx:tr.sx!=null?Number(tr.sx):legacy,sy:tr.sy!=null?Number(tr.sy):legacy,rotation:Number(tr.rotation)||0};
   }
   o.layerOrder=[...new Set((Array.isArray(o.layerOrder)?o.layerOrder:[]).map(mapCat))].filter(c=>ORDER.includes(c));
   for(const c of ORDER)if(!o.layerOrder.includes(c))o.layerOrder.push(c);
@@ -162,9 +258,10 @@ async function restore(){
  selectedCat=equippedId(category)?category:null;
  renderAll();
 }
-function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),2400)}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2400)}
 function students(){return state.students||STUDENTS}
-function studentName(id){return students().find(s=>s.id===id)?.name||'삭제된 학생'}
+function nameOf(s){return lang==='en'&&EN_NAMES[s.id]?EN_NAMES[s.id]:s.name}
+function studentName(id){const s=students().find(x=>x.id===id);return s?nameOf(s):t('deletedStudent')}
 function assetById(id){return state.assets.find(a=>a.id===id)}
 function equippedId(cat){return state.outfits[current]?.[cat]||null}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
@@ -183,9 +280,9 @@ async function composeScene(){
  return layers.map((l,i)=>({...l,img:imgs[i]})).filter(l=>l.img);
 }
 function geomOf(cat,img,cw,ch){
- const t=getT(cat),fit=Math.min(cw/img.naturalWidth,ch/img.naturalHeight);
+ const tr=getT(cat),fit=Math.min(cw/img.naturalWidth,ch/img.naturalHeight);
  const bw=img.naturalWidth*fit,bh=img.naturalHeight*fit;
- return {cx:cw/2+t.x,cy:ch/2+t.y,w:bw*t.sx/100,h:bh*t.sy/100,bw,bh,rot:t.rotation};
+ return {cx:cw/2+tr.x,cy:ch/2+tr.y,w:bw*tr.sx/100,h:bh*tr.sy/100,bw,bh,rot:tr.rotation};
 }
 function paintLayers(ctx,cw,ch,sc){
  ctx.clearRect(0,0,cw,ch);
@@ -219,43 +316,69 @@ async function draw(){
  scene=sc;
  paintLayers(ctx,canvas.width,canvas.height,sc);
  drawSelection(ctx);
- const hasBase=!!assetById(equippedId('face'));
- $('emptyState').style.display=hasBase?'none':'flex';$('baseStatus').textContent=hasBase?'FACE INSTALLED':'FACE NOT INSTALLED';$('baseStatus').style.color=hasBase?'#27845f':'#b65b7b';
+ const anyEquipped=ORDER.some(c=>assetById(equippedId(c))),hasFace=!!assetById(equippedId('face'));
+ $('emptyState').style.display=anyEquipped?'none':'flex';
+ $('baseStatus').textContent=hasFace?t('faceOn'):t('faceOff');$('baseStatus').style.color=hasFace?'#27845f':'#b65b7b';
+ $('exportName').placeholder=defaultExportName()+'.png';
+}
+
+/* ---------- 파일 이름 ---------- */
+function sanitizeName(s){return String(s).replace(/[\\/:*?"<>|\u0000-\u001f]+/g,'_').trim()}
+function defaultExportName(){
+ const o=state.outfits[current],hidden=o.hiddenLayers||[];
+ const parts=['face','top','bottom'].filter(c=>equippedId(c)&&!hidden.includes(c)).map(catLabel);
+ return sanitizeName([studentName(current),...parts].join('_'));
+}
+function uniqueName(base){
+ const used=new Set(state.assets.map(a=>a.name));
+ if(!used.has(base))return base;
+ let n=2;while(used.has(`${base}_${n}`))n++;
+ return `${base}_${n}`;
+}
+function autoAssetName(owner,cat){return uniqueName(`${studentName(owner)}_${catLabel(cat)}`)}
+function renameAsset(id){
+ const a=assetById(id);if(!a)return;
+ const v=prompt(t('renamePrompt'),a.name);if(v===null)return;
+ const n=v.trim();if(!n)return;
+ a.name=n;renderAssets();toast(t('renamed'));
 }
 
 /* ---------- 렌더링 ---------- */
 function renderStudents(){
- $('sourceStudent').innerHTML=students().map(s=>`<option value="${escapeHtml(s.id)}">${escapeHtml(s.name)}</option>`).join('');
+ $('sourceStudent').innerHTML=students().map(s=>`<option value="${escapeHtml(s.id)}">${escapeHtml(nameOf(s))}</option>`).join('');
  $('sourceStudent').value=current;
  const s=students().find(x=>x.id===current);
  const sub=s&&s.school!==undefined?s.school:'ABYDOS HIGH SCHOOL';
  $('stageTitle').innerHTML=`${escapeHtml(studentName(current))}${sub?` <span>${escapeHtml(sub)}</span>`:''}`;
 }
-function renderCats(){$('categoryTabs').innerHTML=CATS.map(c=>`<button class="cat ${category===c.id?'active':''}" data-cat="${c.id}">${c.label}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(el=>el.onclick=()=>setCategory(el.dataset.cat));}
+function renderCats(){$('categoryTabs').innerHTML=CATS.map(c=>`<button class="cat ${category===c.id?'active':''}" data-cat="${c.id}">${escapeHtml(catLabel(c.id))}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(el=>el.onclick=()=>setCategory(el.dataset.cat));}
 function setCategory(c){category=c;selectedCat=equippedId(c)?c:null;renderCats();renderAssets();updateHint();setTransformUI();renderLayers();draw()}
-function renderAssets(){const query=($('assetSearch')?.value||'').trim().toLocaleLowerCase();const filtered=state.assets.filter(a=>a.category===category&&(!query||String(a.name||'').toLocaleLowerCase().includes(query)));$('assetCount').textContent=`${filtered.length} ITEMS`;$('libraryLabel').textContent=`${CATS.find(c=>c.id===category).en} / ${query?'검색 결과':'전체 파츠'}`;if(!filtered.length){$('assetList').innerHTML=`<div class="empty-library">${query?'검색 결과가 없습니다.':'등록된 파츠가 없습니다.'}<br>${query?'파일 이름을 확인해 주세요.':'위에서 이미지 파일을 등록해 주세요.'}</div>`;return;}$('assetList').innerHTML=filtered.map(a=>`<div class="asset ${equippedId(category)===a.id?'equipped':''}"><button class="asset-select" data-asset="${a.id}" style="display:block;width:100%;padding:0;background:transparent;text-align:left;color:inherit"><img src="${a.data}" alt=""><b>${escapeHtml(a.name)}</b><small>${escapeHtml(studentName(a.owner))} 등록</small></button><button class="remove" data-remove="${a.id}" title="삭제">×</button></div>`).join('');document.querySelectorAll('[data-asset]').forEach(el=>el.onclick=()=>equip(el.dataset.asset));document.querySelectorAll('[data-remove]').forEach(el=>el.onclick=e=>{e.stopPropagation();removeAsset(el.dataset.remove)});}
-function autoAssetName(owner,cat){
- const base=`${studentName(owner)}_${CATS.find(x=>x.id===cat).label}`,used=new Set(state.assets.map(a=>a.name));
- let n=1,name=base;while(used.has(name)){n++;name=`${base}_${n}`}
- return name;
+function renderAssets(){
+ const query=($('assetSearch')?.value||'').trim().toLocaleLowerCase();
+ const filtered=state.assets.filter(a=>a.category===category&&(!query||String(a.name||'').toLocaleLowerCase().includes(query)));
+ $('assetCount').textContent=`${filtered.length} ITEMS`;
+ $('libraryLabel').textContent=`${CATS.find(c=>c.id===category).en} / ${query?t('results'):t('allParts')}`;
+ if(!filtered.length){$('assetList').innerHTML=`<div class="empty-library">${query?t('noResults'):t('noParts')}<br>${query?t('checkName'):t('uploadAbove')}</div>`;return;}
+ $('assetList').innerHTML=filtered.map(a=>`<div class="asset ${equippedId(category)===a.id?'equipped':''}"><button class="asset-select" data-asset="${a.id}" style="display:block;width:100%;padding:0;background:transparent;text-align:left;color:inherit"><img src="${a.data}" alt=""><b>${escapeHtml(a.name)}</b><small>${escapeHtml(t('uploadedBy',studentName(a.owner)))}</small></button><button class="rename" data-rename="${a.id}" title="${escapeHtml(t('renameTitle'))}">✎</button><button class="remove" data-remove="${a.id}" title="${escapeHtml(t('removeTitle'))}">×</button></div>`).join('');
+ document.querySelectorAll('[data-asset]').forEach(el=>el.onclick=()=>equip(el.dataset.asset));
+ document.querySelectorAll('[data-rename]').forEach(el=>el.onclick=e=>{e.stopPropagation();renameAsset(el.dataset.rename)});
+ document.querySelectorAll('[data-remove]').forEach(el=>el.onclick=e=>{e.stopPropagation();removeAsset(el.dataset.remove)});
 }
-function updateHint(){const label=CATS.find(x=>x.id===category).label;$('uploadHint').textContent=`${studentName(current)} 학생의 ${label} 파츠를 등록합니다. 이름은 ${studentName(current)}_${label} 형식으로 자동 지정됩니다.`}
+function updateHint(){$('uploadHint').textContent=t('uploadHint',studentName(current),catLabel(category))}
 function setTransformUI(){
- const t=getT(category),r=n=>Math.round(n*10)/10;
- $('offsetX').value=t.x;$('offsetY').value=t.y;$('scaleX').value=t.sx;$('scaleY').value=t.sy;$('rotation').value=t.rotation;
- $('xVal').textContent=Math.round(t.x);$('yVal').textContent=Math.round(t.y);
- $('scaleXVal').textContent=r(t.sx)+'%';$('scaleYVal').textContent=r(t.sy)+'%';$('rotationVal').textContent=r(t.rotation)+'°';
- const c=CATS.find(x=>x.id===category);
- $('selName').textContent=`편집 중: ${c.label}${equippedId(category)?'':' (장착 없음)'}`;
+ const tr=getT(category),r=n=>Math.round(n*10)/10;
+ $('offsetX').value=tr.x;$('offsetY').value=tr.y;$('scaleX').value=tr.sx;$('scaleY').value=tr.sy;$('rotation').value=tr.rotation;
+ $('xVal').textContent=Math.round(tr.x);$('yVal').textContent=Math.round(tr.y);
+ $('scaleXVal').textContent=r(tr.sx)+'%';$('scaleYVal').textContent=r(tr.sy)+'%';$('rotationVal').textContent=r(tr.rotation)+'°';
+ $('selName').textContent=t('editing',catLabel(category),!!equippedId(category));
 }
 function renderLayers(){
  const outfit=state.outfits[current],order=outfit.layerOrder||ORDER;
- const labels={face:'얼굴',bottom:'하의',top:'상의'};
  const equipped=order.filter(cat=>equippedId(cat));
- if(!equipped.length){$('layerList').innerHTML='<div class="layer-empty">장착된 레이어가 없습니다.</div>';return;}
+ if(!equipped.length){$('layerList').innerHTML=`<div class="layer-empty">${t('layerEmpty')}</div>`;return;}
  $('layerList').innerHTML=[...equipped].reverse().map(cat=>{
   const visible=!(outfit.hiddenLayers||[]).includes(cat),idx=order.indexOf(cat);
-  return `<div class="layer-row ${selectedCat===cat?'sel':''}"><span class="layer-name" data-layer-sel="${cat}">${labels[cat]||cat}${visible?'':' · 숨김'}</span><button data-layer-vis="${cat}">${visible?'숨기기':'표시'}</button><button data-layer-up="${cat}" ${idx===order.length-1?'disabled':''}>앞으로</button><button data-layer-down="${cat}" ${idx===0?'disabled':''}>뒤로</button></div>`;
+  return `<div class="layer-row ${selectedCat===cat?'sel':''}"><span class="layer-name" data-layer-sel="${cat}">${escapeHtml(catLabel(cat))}${visible?'':t('hidden')}</span><button data-layer-vis="${cat}">${visible?t('hide'):t('show')}</button><button data-layer-up="${cat}" ${idx===order.length-1?'disabled':''}>${t('forward')}</button><button data-layer-down="${cat}" ${idx===0?'disabled':''}>${t('backward')}</button></div>`;
  }).join('');
  document.querySelectorAll('[data-layer-sel]').forEach(b=>b.onclick=()=>setCategory(b.dataset.layerSel));
  document.querySelectorAll('[data-layer-vis]').forEach(b=>b.onclick=()=>{const c=b.dataset.layerVis;outfit.hiddenLayers=outfit.hiddenLayers||[];outfit.hiddenLayers=outfit.hiddenLayers.includes(c)?outfit.hiddenLayers.filter(x=>x!==c):[...outfit.hiddenLayers,c];renderLayers();draw()});
@@ -264,9 +387,10 @@ function renderLayers(){
 }
 function moveLayer(cat,delta){const o=state.outfits[current];o.layerOrder=o.layerOrder||[...ORDER];const i=o.layerOrder.indexOf(cat),j=i+delta;if(i<0||j<0||j>=o.layerOrder.length)return;[o.layerOrder[i],o.layerOrder[j]]=[o.layerOrder[j],o.layerOrder[i]];renderLayers();draw()}
 function renderAll(){renderStudents();renderCats();renderAssets();updateHint();setTransformUI();renderLayers();draw()}
-function equip(id){const asset=assetById(id);if(!asset)return;if(category==='face'&&asset.owner!==current){toast('이 파츠는 해당 학생 전용입니다.');return;}state.outfits[current][category]=id;selectedCat=category;renderAssets();renderLayers();setTransformUI();draw();toast(`${studentName(current)}에게 ${asset.name} 장착`)}
+// 얼굴·상의·하의 모두 같은 방식: 라이브러리의 파일을 클릭하면 현재 학생에게 장착됩니다.
+function equip(id){const asset=assetById(id);if(!asset)return;state.outfits[current][category]=id;selectedCat=category;renderAssets();renderLayers();setTransformUI();draw();toast(t('equipped',studentName(current),asset.name))}
 function dropAssetRefs(id){for(const o of Object.values(state.outfits))for(const k of Object.keys(o))if(o[k]===id)o[k]=null;imageCache.delete(id);alphaCache.delete(id)}
-function removeAsset(id){const asset=assetById(id);if(!asset)return;state.assets=state.assets.filter(a=>a.id!==id);dropAssetRefs(id);if(selectedCat&&!equippedId(selectedCat))selectedCat=null;renderAssets();renderLayers();setTransformUI();draw();toast('파츠를 삭제했습니다.')}
+function removeAsset(id){const asset=assetById(id);if(!asset)return;state.assets=state.assets.filter(a=>a.id!==id);dropAssetRefs(id);if(selectedCat&&!equippedId(selectedCat))selectedCat=null;renderAssets();renderLayers();setTransformUI();draw();toast(t('partDeleted'))}
 
 /* ---------- 캔버스 크기 ---------- */
 function applyCanvasSize(w,h){
@@ -274,7 +398,7 @@ function applyCanvasSize(w,h){
  h=Math.max(128,Math.min(2048,Math.round(Number(h)||1152)));
  const c=$('preview');c.width=w;c.height=h;
  $('canvasWidth').value=w;$('canvasHeight').value=h;
- $('canvasSizeLabel').textContent=`캔버스 ${w} × ${h}`;
+ $('canvasSizeLabel').textContent=t('canvasLabel',w,h);
  c.style.setProperty('--canvas-ratio',`${w}/${h}`);
  draw();
 }
@@ -285,38 +409,47 @@ $('ratioPreset').onchange=()=>{
  if(h>2048){h=2048;w=Math.round(h*rw/rh)}
  $('canvasWidth').value=w;$('canvasHeight').value=h;applyCanvasSize(w,h);
 };
-$('applyRatio').onclick=()=>{applyCanvasSize($('canvasWidth').value,$('canvasHeight').value);$('ratioPreset').value='custom';toast('캔버스 비율을 적용했습니다.')};
+$('applyRatio').onclick=()=>{applyCanvasSize($('canvasWidth').value,$('canvasHeight').value);$('ratioPreset').value='custom';toast(t('ratioApplied'))};
 window.addEventListener('resize',()=>draw());
 
-/* ---------- 업로드 ---------- */
-$('assetFiles').addEventListener('change',async e=>{const files=[...e.target.files];if(!files.length)return;const owner=current;let added=0;for(const f of files){if(!f.type.startsWith('image/'))continue;const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const baseName=$('assetName').value.trim();state.assets.push({id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(16).slice(2)),category,owner,name:baseName&&files.length===1?baseName:autoAssetName(owner,category),data});added++}if(category==='face'){const latest=state.assets.filter(a=>a.category==='face'&&a.owner===owner).at(-1);state.outfits[owner].face=latest?.id||null;if(owner===current)selectedCat=latest?'face':null;}renderAssets();renderLayers();setTransformUI();draw();e.target.value='';$('assetName').value='';toast(`${added}개 파츠를 등록했습니다.`)});
+/* ---------- 업로드 (이름: 직접 입력 > (학생)_(파츠) 자동, 중복이면 _2, _3…) ---------- */
+$('assetFiles').addEventListener('change',async e=>{
+ const files=[...e.target.files];if(!files.length)return;
+ const owner=current,cat=category,custom=sanitizeName($('assetName').value);
+ let added=0;
+ for(const f of files){
+  if(!f.type.startsWith('image/'))continue;
+  const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});
+  const name=custom?uniqueName(custom):autoAssetName(owner,cat);
+  state.assets.push({id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(16).slice(2)),category:cat,owner,name,data});
+  added++;
+ }
+ renderAssets();e.target.value='';$('assetName').value='';toast(t('uploaded',added));
+});
 
 /* ---------- 학생 추가 / 삭제 ---------- */
 function addStudent(){
  const name=$('newStudentName').value.trim();
- if(!name){toast('학생 이름을 입력하세요.');return;}
- if(students().some(s=>s.name===name)){toast('이미 같은 이름의 학생이 있습니다.');return;}
+ if(!name){toast(t('needName'));return;}
+ if(students().some(s=>s.name===name||nameOf(s)===name)){toast(t('dupName'));return;}
  const id='custom_'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
  state.students.push({id,name,en:name.toUpperCase(),mark:[...name][0]||'?',school:''});
  state.outfits[id]=emptyOutfit();
  current=id;selectedCat=null;
  $('newStudentName').value='';
- renderAll();toast(`${name} 학생을 추가했습니다.`);
+ renderAll();toast(t('studentAdded',name));
 }
 $('addStudent').onclick=addStudent;
 $('newStudentName').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();addStudent()}});
 $('deleteStudent').onclick=()=>{
- if(students().length<=1){toast('마지막 학생은 삭제할 수 없습니다.');return;}
+ if(students().length<=1){toast(t('lastStudent'));return;}
  const name=studentName(current);
- if(!confirm(`'${name}' 학생을 삭제할까요?\n이 학생의 얼굴 파츠도 함께 삭제됩니다.`))return;
- const gone=state.assets.filter(a=>a.owner===current&&a.category==='face').map(a=>a.id);
- state.assets=state.assets.filter(a=>!gone.includes(a.id));
- gone.forEach(dropAssetRefs);
+ if(!confirm(t('confirmDelete',name)))return;
  delete state.outfits[current];
  state.students=state.students.filter(s=>s.id!==current);
  current=state.students[0].id;
  selectedCat=equippedId(category)?category:null;
- renderAll();toast(`${name} 학생을 삭제했습니다.`);
+ renderAll();toast(t('studentDeleted',name));
 };
 $('sourceStudent').onchange=()=>{current=$('sourceStudent').value;selectedCat=equippedId(category)?category:null;renderAll()};
 $('assetSearch').addEventListener('input',renderAssets);
@@ -326,11 +459,11 @@ const clampS=v=>Math.min(1000,Math.max(5,v));
 function afterT(){setTransformUI();draw()}
 $('offsetX').addEventListener('input',()=>{editT(category).x=Number($('offsetX').value);afterT()});
 $('offsetY').addEventListener('input',()=>{editT(category).y=Number($('offsetY').value);afterT()});
-$('scaleX').addEventListener('input',()=>{const t=editT(category),v=Number($('scaleX').value),f=v/(t.sx||100);t.sx=v;if($('lockRatio').checked)t.sy=clampS(t.sy*f);afterT()});
-$('scaleY').addEventListener('input',()=>{const t=editT(category),v=Number($('scaleY').value),f=v/(t.sy||100);t.sy=v;if($('lockRatio').checked)t.sx=clampS(t.sx*f);afterT()});
+$('scaleX').addEventListener('input',()=>{const tr=editT(category),v=Number($('scaleX').value),f=v/(tr.sx||100);tr.sx=v;if($('lockRatio').checked)tr.sy=clampS(tr.sy*f);afterT()});
+$('scaleY').addEventListener('input',()=>{const tr=editT(category),v=Number($('scaleY').value),f=v/(tr.sy||100);tr.sy=v;if($('lockRatio').checked)tr.sx=clampS(tr.sx*f);afterT()});
 $('rotation').addEventListener('input',()=>{editT(category).rotation=Number($('rotation').value);afterT()});
-$('fitRatio').onclick=()=>{const t=editT(category);t.sy=t.sx;afterT();toast('가로·세로 크기를 같게 맞췄습니다.')};
-$('resetPart').onclick=()=>{delete state.outfits[current].transforms[category];afterT();toast('이 파츠의 위치·크기·회전을 초기화했습니다.')};
+$('fitRatio').onclick=()=>{const tr=editT(category);tr.sy=tr.sx;afterT();toast(t('fitDone'))};
+$('resetPart').onclick=()=>{delete state.outfits[current].transforms[category];afterT();toast(t('partReset'))};
 
 /* ---------- 캔버스에서 직접 편집 ---------- */
 const cv=$('preview');
@@ -391,14 +524,14 @@ cv.addEventListener('pointermove',e=>{
   else if(hitLayer(p))cur='move';
   cv.style.cursor=cur;return;
  }
- const g=drag.g,t=editT(drag.cat);
+ const g=drag.g,tr=editT(drag.cat);
  if(drag.mode==='move'){
-  t.x=Math.round(drag.t0.x+p.x-drag.p0.x);t.y=Math.round(drag.t0.y+p.y-drag.p0.y);
+  tr.x=Math.round(drag.t0.x+p.x-drag.p0.x);tr.y=Math.round(drag.t0.y+p.y-drag.p0.y);
  }else if(drag.mode==='rot'){
   let ang=Math.atan2(p.y-g.cy,p.x-g.cx)*180/Math.PI+90;
   if(e.shiftKey)ang=Math.round(ang/15)*15;
   ang=((ang+180)%360+360)%360-180;
-  t.rotation=Math.round(ang*10)/10;
+  tr.rotation=Math.round(ang*10)/10;
  }else{
   const [hx,hy]=HANDLES[drag.mode],q=toLocal(g,p);
   let nw=g.w,nh=g.h,ax=0,ay=0;
@@ -407,8 +540,8 @@ cv.addEventListener('pointermove',e=>{
   if(hx!==0&&hy!==0&&$('lockRatio').checked){const k=Math.max(nw/g.w,nh/g.h);nw=g.w*k;nh=g.h*k}
   const lc={x:hx!==0?ax+hx*nw/2:0,y:hy!==0?ay+hy*nh/2:0};
   const c=toCanvasPt(g,lc);
-  t.x=Math.round(c.x-cv.width/2);t.y=Math.round(c.y-cv.height/2);
-  t.sx=clampS(Math.round(nw/g.bw*1000)/10);t.sy=clampS(Math.round(nh/g.bh*1000)/10);
+  tr.x=Math.round(c.x-cv.width/2);tr.y=Math.round(c.y-cv.height/2);
+  tr.sx=clampS(Math.round(nw/g.bw*1000)/10);tr.sy=clampS(Math.round(nh/g.bh*1000)/10);
  }
  setTransformUI();draw();
 });
@@ -421,17 +554,19 @@ $('resetOutfit').onclick=()=>{
  const old=state.outfits[current],keep=old.transforms.face?{face:old.transforms.face}:{};
  state.outfits[current]={...emptyOutfit(),face:old.face,transforms:keep};
  selectedCat=equippedId(category)&&category==='face'?'face':null;
- renderAll();toast('얼굴을 제외한 착장을 초기화했습니다.');
+ renderAll();toast(t('outfitReset'));
 };
 $('exportPng').onclick=async()=>{
  const sc=await composeScene(),off=document.createElement('canvas');
  off.width=cv.width;off.height=cv.height;
  paintLayers(off.getContext('2d'),off.width,off.height,sc);
- off.toBlob(blob=>{if(!blob){toast('PNG를 만들지 못했습니다.');return;}const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${studentName(current)}_paper_dresser.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},'image/png');
+ const typed=sanitizeName($('exportName').value.replace(/\.png$/i,''));
+ const fname=(typed||defaultExportName()||'character')+'.png';
+ off.toBlob(blob=>{if(!blob){toast(t('pngFail'));return;}const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},'image/png');
 };
 function downloadProject(filename){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 $('exportProject').onclick=()=>downloadProject('kivotos_dress_up_backup.json');
-$('exportDefault').onclick=()=>{downloadProject('default-project.json');toast('다운로드한 파일을 GitHub 저장소의 data/default-project.json에 넣으세요.')};
+$('exportDefault').onclick=()=>{downloadProject('default-project.json');toast(t('defaultToast'))};
 $('importProject').onchange=async e=>{
  const f=e.target.files[0];if(!f)return;
  try{
@@ -439,10 +574,13 @@ $('importProject').onchange=async e=>{
   state=obj;imageCache.clear();alphaCache.clear();
   if(!students().some(s=>s.id===current))current=students()[0].id;
   selectedCat=equippedId(category)?category:null;
-  renderAll();toast('프로젝트를 불러왔습니다.');
- }catch(err){toast('올바른 프로젝트 백업 파일이 아닙니다.')}
+  renderAll();toast(t('imported'));
+ }catch(err){toast(t('badBackup'))}
  e.target.value='';
 };
+$('langKo').onclick=()=>setLang('ko');
+$('langEn').onclick=()=>setLang('en');
+applyStatic();
 restore();
 </script>
 </body>
