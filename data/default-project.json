@@ -174,36 +174,22 @@
   ],
   "outfits": {
     "shiroko": {
+      "face": "23c7ed36-59ce-482f-896a-f6afe14f478a",
       "top": null,
-      "bottom": "27f13f65-0b3d-4533-b2d0-07e1c640b6e4",
+      "bottom": null,
       "transforms": {
         "face": {
-          "x": -42,
-          "y": -215,
+          "x": 5,
+          "y": -184,
           "sx": 55.9,
           "sy": 55.9,
           "rotation": 0
-        },
-        "top": {
-          "x": 64,
-          "y": -73,
-          "sx": 60.1,
-          "sy": 60.1,
-          "rotation": 0
-        },
-        "bottom": {
-          "x": -14,
-          "y": 119,
-          "sx": 50.4,
-          "sy": 50.4,
-          "rotation": 0
         }
       },
-      "face": "c02dac3d-4be6-412d-a217-05df5a00b0c8",
       "layerOrder": [
+        "face",
         "bottom",
-        "top",
-        "face"
+        "top"
       ],
       "hiddenLayers": []
     },
