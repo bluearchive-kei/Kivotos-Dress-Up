@@ -263,7 +263,7 @@ async function restore(){
 }
 function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2400)}
 function students(){return state.students||STUDENTS}
-function nameOf(s){return lang==='en'&&EN_NAMES[s.id]?EN_NAMES[s.id]:s.name}
+function nameOf(s){return s.name}
 function studentName(id){const s=students().find(x=>x.id===id);return s?nameOf(s):t('deletedStudent')}
 function assetById(id){return state.assets.find(a=>a.id===id)}
 function equippedId(cat){return state.outfits[current]?.[cat]||null}
